@@ -21,7 +21,7 @@ const LINKS = [
 
 const Home = () => {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl">
       <div className="relative">
         <img
           src="/images/kenglernitis-title.png"
