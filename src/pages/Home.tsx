@@ -34,7 +34,7 @@ const Home = () => {
             <button>
               <img
                 src="/images/buy-button.png"
-                className="select-none transition hover:brightness-110 active:brightness-90"
+                className="select-none transition hover:scale-[101%] hover:brightness-110 active:brightness-90"
                 draggable={false}
               />
             </button>
