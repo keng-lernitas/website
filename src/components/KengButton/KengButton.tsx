@@ -2,18 +2,20 @@ import React from "react";
 import { cn } from "../../lib/utils";
 
 interface KengButtonProps {
-  type?: "gold" | "red";
+  type?: "gold" | "red" | "info";
   className?: string;
   onClick?: () => void;
 }
 
 const StaticState = {
   gold: "/images/buy-button.png",
+  info: "/images/info-button.png",
   red: "/images/burn-button.png",
 };
 const HoverState = {
   gold: "/images/buy-button-hover.png",
   red: "/images/burn-button-hover.png",
+  info: "/images/info-button-hover.png",
 };
 
 const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
