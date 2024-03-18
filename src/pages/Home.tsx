@@ -1,4 +1,5 @@
 import React from "react";
+import { KengButton } from "../components";
 
 const LINKS = [
   {
@@ -31,20 +32,8 @@ const Home = () => {
           />
 
           <div className="flex w-[50%] items-center gap-x-[1%]">
-            <button>
-              <img
-                src="/images/buy-button.png"
-                className="select-none  hover:rotate-3 hover:scale-[101%] hover:brightness-110 active:brightness-90"
-                draggable={false}
-              />
-            </button>
-            <button>
-              <img
-                src="/images/burn-button.png"
-                className="select-none"
-                draggable={false}
-              />
-            </button>
+            <KengButton type="gold" />
+            <KengButton type="red" />
           </div>
         </div>
 
@@ -66,13 +55,10 @@ const Home = () => {
         </div>
 
         {/* website graphic */}
-        <button className="absolute left-1/2 top-[53.5%]  z-50 w-[20%] -translate-x-1/2">
-          <img
-            src="/images/buy-button.png"
-            className="select-none"
-            draggable={false}
-          />
-        </button>
+        <KengButton
+          type="gold"
+          className="absolute left-1/2 top-[53.5%]  z-50 w-[20%] -translate-x-1/2"
+        />
 
         <img
           src="/images/website_graphic.webp"
