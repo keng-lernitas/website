@@ -21,6 +21,13 @@ const LINKS = [
 ];
 
 const Home = () => {
+  const handleHeaderBuyClicked = () => {
+    window.open(
+      "https://velodrome.finance/swap?from=eth&to=0x3ed9acaac7bd974eb83a8ea6432a239e3c829d5d",
+      "_blank",
+    );
+  };
+
   const handleBuyClicked = () => {
     window.open(
       "https://twitter.com/BuyWeb3/status/1769143131893903437",
@@ -39,7 +46,7 @@ const Home = () => {
           />
 
           <div className="flex w-[50%] items-center gap-x-[1%]">
-            <KengButton type="gold" onClick={handleBuyClicked} />
+            <KengButton type="gold" onClick={handleHeaderBuyClicked} />
             <KengButton type="red" />
           </div>
         </div>
