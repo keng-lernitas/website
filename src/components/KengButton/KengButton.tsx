@@ -4,6 +4,7 @@ import { cn } from "../../lib/utils";
 interface KengButtonProps {
   type?: "gold" | "red";
   className?: string;
+  onClick?: () => void;
 }
 
 const StaticState = {
@@ -15,9 +16,9 @@ const HoverState = {
   red: "/images/burn-button-hover.png",
 };
 
-const KengButton = ({ type = "gold", className }: KengButtonProps) => {
+const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
   return (
-    <button className={cn("group relative", className)}>
+    <button onClick={onClick} className={cn("group relative", className)}>
       <img
         src={StaticState[type]}
         className="select-none hover:scale-[102%]"

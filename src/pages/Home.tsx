@@ -21,6 +21,13 @@ const LINKS = [
 ];
 
 const Home = () => {
+  const handleBuyClicked = () => {
+    window.open(
+      "https://twitter.com/BuyWeb3/status/1769143131893903437",
+      "_blank",
+    );
+  };
+
   return (
     <div className="mx-auto max-w-5xl">
       <div className="relative h-full ">
@@ -32,7 +39,7 @@ const Home = () => {
           />
 
           <div className="flex w-[50%] items-center gap-x-[1%]">
-            <KengButton type="gold" />
+            <KengButton type="gold" onClick={handleBuyClicked} />
             <KengButton type="red" />
           </div>
         </div>
@@ -58,6 +65,7 @@ const Home = () => {
         <KengButton
           type="gold"
           className="absolute left-1/2 top-[53.5%]  z-50 w-[20%] -translate-x-1/2"
+          onClick={handleBuyClicked}
         />
 
         <img
