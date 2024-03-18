@@ -18,6 +18,10 @@ const LINKS = [
     name: "memes",
     url: "#",
   },
+  {
+    name: "info",
+    url: "https://twitter.com/BuyWeb3/status/1769143131893903437",
+  },
 ];
 
 const Home = () => {
@@ -61,7 +65,10 @@ const Home = () => {
                 target={link.name === "memes" ? "_self" : "_blank"}
                 rel="noreferrer"
               >
-                <img src={`/images/dots/dot-${i + 1}.png`} className="w-[8%]" />
+                <img
+                  src={`/images/dots/dot-${(i + 1) % 4 || 4}.png`}
+                  className="w-[8%]"
+                />
                 {link.name}
               </a>
             ))}
