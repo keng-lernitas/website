@@ -87,9 +87,14 @@ const Home = () => {
           className=" ml-[-6%] mt-[28%] scale-[135%] transform-gpu select-none"
         />
 
-        <div className="mb-[2%] mt-[30%] text-center font-ScribbleChild text-[1.7dvw] text-keng-red lg:text-base">
+        <a
+          href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="mb-[2%] mt-[30%] block text-center font-ScribbleChild text-[1.7dvw] text-keng-red transition hover:text-red-500 lg:text-base"
+        >
           CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
-        </div>
+        </a>
       </div>
     </div>
   );
