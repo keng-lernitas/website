@@ -75,7 +75,7 @@ const Home = () => {
         </button>
 
         <img
-          src="/images/website_graphic.png"
+          src="/images/website_graphic.webp"
           className=" ml-[-6%] mt-[28%] scale-[135%] select-none"
         />
 
