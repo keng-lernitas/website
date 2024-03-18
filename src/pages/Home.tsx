@@ -51,7 +51,7 @@ const Home = () => {
                 key={link.name}
                 href={link.url}
                 className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
-                target="_blank"
+                target={link.name === "memes" ? "_self" : "_blank"}
                 rel="noreferrer"
               >
                 <img src={`/images/dots/dot-${i + 1}.png`} className="w-[8%]" />
