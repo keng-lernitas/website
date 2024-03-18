@@ -30,11 +30,11 @@ const Home = () => {
             alt="Keng"
           />
 
-          <div className="flex w-[38%] items-center gap-x-[5%]">
+          <div className="flex w-[50%] items-center gap-x-[1%]">
             <button>
               <img
                 src="/images/buy-button.png"
-                className="select-none"
+                className="select-none transition hover:brightness-110 active:brightness-90"
                 draggable={false}
               />
             </button>
@@ -76,7 +76,7 @@ const Home = () => {
 
         <img
           src="/images/website_graphic.webp"
-          className=" ml-[-6%] mt-[28%] scale-[135%] select-none"
+          className=" ml-[-6%] mt-[28%] scale-[135%] transform-gpu select-none"
         />
 
         <div className="mb-[2%] mt-[30%] text-center font-ScribbleChild text-keng-red">
