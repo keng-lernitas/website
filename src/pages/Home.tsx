@@ -23,7 +23,7 @@ const Home = () => {
 
         <img
           src="/images/website_graphic.webp"
-          className=" ml-[-6%] mt-[28%] scale-[135%] transform-gpu select-none"
+          className=" pointer-events-none z-0 ml-[-6%] mt-[28%] scale-[135%] transform-gpu select-none"
         />
 
         <a

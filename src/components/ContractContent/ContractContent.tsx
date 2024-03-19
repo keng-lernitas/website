@@ -22,8 +22,6 @@ import { CustomConnectButton } from "..";
 const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
 const DEAD_ADDRESS = "0x000000000000000000000000000000000000dead";
 
-const decimals = 18;
-
 interface ContractReadResult {
   data: bigint | undefined; // Assuming your data should be a string or null
   isLoading: boolean;

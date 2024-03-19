@@ -11,6 +11,8 @@ const AppRoutes = () => {
 
         {/* Coming Soon */}
         <Route path="/" element={<ComingSoon />} />
+
+        <Route path="/home-preview" element={<Home />} />
         <Route path="/burn" element={<Burn />} />
       </Routes>
     </BrowserRouter>
