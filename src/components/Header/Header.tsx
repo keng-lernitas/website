@@ -48,7 +48,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="absolute left-[3%] z-50 mt-[5%]  ">
+      <div className="absolute left-[3%] mt-[5%]  ">
         <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-[0] lg:text-[1.65rem] lg:leading-[0]">
           {LINKS.map((link, i) => (
             <a

@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         ScribbleChild: "ScribbleChild",
         ScribbleHand: "ScribbleHand",
+        MonaSans: "Mona Sans",
       },
 
       colors: {
