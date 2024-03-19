@@ -243,7 +243,7 @@ const ContractContent = ({
           {contractState !== "transaction_pending" && (
             <button
               type="button"
-              className="mt-3 inline-flex w-full justify-center rounded-md border-t border-t-neutral-200 bg-neutral-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-neutral-400 sm:mt-0 sm:w-auto"
+              className="mt-3 inline-flex w-full justify-center rounded-md border-t border-t-neutral-200 bg-neutral-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm transition hover:bg-neutral-400 sm:mt-0 sm:w-auto"
               onClick={() => setOpen(false)}
             >
               Close
