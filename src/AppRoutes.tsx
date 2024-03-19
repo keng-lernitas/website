@@ -7,12 +7,7 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-
-        {/* Coming Soon */}
-        <Route path="/" element={<ComingSoon />} />
-
-        <Route path="/home-preview" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/burn" element={<Burn />} />
       </Routes>
     </BrowserRouter>
