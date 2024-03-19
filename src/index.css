@@ -10,5 +10,10 @@ body {
 
 @font-face {
   font-family: "ScribbleChild";
-  src: url("/fonts/Scribble Child.ttf");
+  src: url("/fonts/Scribble_Child.ttf");
+}
+
+@font-face {
+  font-family: "ScribbleHand";
+  src: url("/fonts/Scribble_Hand.ttf");
 }

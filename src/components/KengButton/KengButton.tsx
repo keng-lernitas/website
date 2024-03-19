@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "../../lib/utils";
 
 interface KengButtonProps {
-  type?: "gold" | "red" | "info";
+  type?: "gold" | "red" | "info" | "seel";
   className?: string;
   onClick?: () => void;
 }
@@ -11,16 +11,28 @@ const StaticState = {
   gold: "/images/buy-button.png",
   info: "/images/info-button.png",
   red: "/images/burn-button.png",
+  seel: "/images/seel-button.png",
 };
 const HoverState = {
   gold: "/images/buy-button-hover.png",
   red: "/images/burn-button-hover.png",
   info: "/images/info-button-hover.png",
+  seel: "/images/seel-button-hover.png",
 };
 
 const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
+  const handleMouseOver = () => {
+    const audio = new Audio("/audio/button_hover.wav");
+    audio.volume = 0.5;
+    audio.play();
+  };
+
   return (
-    <button onClick={onClick} className={cn("group relative", className)}>
+    <button
+      onClick={onClick}
+      className={cn("group relative", className)}
+      onMouseOver={handleMouseOver}
+    >
       <img
         src={StaticState[type]}
         className="select-none hover:scale-[102%]"
