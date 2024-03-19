@@ -37,27 +37,9 @@ interface ContractContentProps {
 
 type ContractStateType = "idle" | "transaction_pending" | "transaction_success";
 
-function roundToTwoDecimals(input: number): number {
-  // I put MAX_ROUNDING in order to have MAX_ROUNDING - 0.005 be correctly represented in JavaScript.
-  const MAX_ROUNDING = Math.trunc(Number.MAX_SAFE_INTEGER / 10000);
-
-  const absolute = Math.abs(input); // e.g.: absolute = 1.125
-
-  if (absolute > MAX_ROUNDING)
-    throw Error(
-      `Number ${input} is too big and not safe to round to two decimals`,
-    );
-
-  const hundredths = absolute * 100; // hundredths = 112.5
-  let result = Math.trunc(hundredths) / 100; // result = 1.12
-  const remainder = hundredths - Math.floor(hundredths); // remainder = 0.5
-  if (remainder >= 0.5) {
-    result += 0.01; // result = 1.1300000000000001
-  }
-  result = Number(result.toFixed(2)); // result = 1.13
-
-  return input < 0 ? -result : result;
-}
+const calculatePercentage = (startingNumber: bigint, percentage: number) => {
+  return (startingNumber * BigInt(percentage)) / BigInt(100);
+};
 
 const ContractContent = ({
   open,
@@ -79,26 +61,16 @@ const ContractContent = ({
 
   const tokenBalance =
     balanceBigInt !== undefined
-      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, decimals)))
+      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 15))) / 1000
       : 0;
 
   const ninetyPercentBigInt =
-    balanceBigInt !== undefined
-      ? Number((BigInt(balanceBigInt) * 90n) / 100n)
-      : 0;
+    balanceBigInt !== undefined ? calculatePercentage(balanceBigInt, 90) : 0;
 
   const ninetyPercent =
     ninetyPercentBigInt !== undefined
-      ? Number(BigInt(ninetyPercentBigInt) / BigInt(Math.pow(10, decimals)))
+      ? Number(BigInt(ninetyPercentBigInt) / BigInt(Math.pow(10, 15))) / 1000
       : 0;
-
-  const decimalString = ninetyPercentBigInt
-    .toString()
-    .padStart(decimals + 1, "0"); // Ensure leading zeros
-  const integerPart = decimalString.slice(0, -decimals) || "0"; // Avoid empty string
-  const decimalPart = decimalString.slice(-decimals);
-
-  const decimalStringWithDot = `${integerPart}.${decimalPart}`;
 
   const {
     data: hash,
@@ -204,11 +176,7 @@ const ContractContent = ({
                     Burnable Tokens
                   </p>
                   <p className=" text-neutral-200">
-                    {isLoading ? (
-                      "Loading Balance..."
-                    ) : (
-                      <>{roundToTwoDecimals(Number(decimalStringWithDot))}</>
-                    )}
+                    {isLoading ? "Loading Balance..." : <>{ninetyPercent}</>}
                   </p>
                 </div>
               </div>
@@ -219,9 +187,8 @@ const ContractContent = ({
 
               <p className="mt-2">
                 By signing this contract, you are agreeing to burn 90% of your
-                2192 token supply (
-                {roundToTwoDecimals(Number(decimalStringWithDot))}). In doing
-                so, you will will be air dropped Zorksees Token.
+                2192 token supply ({ninetyPercent}). In doing so, you will will
+                be air dropped Zorksees Token.
               </p>
 
               <p className="mt-2">
