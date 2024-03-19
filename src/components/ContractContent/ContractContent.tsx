@@ -185,13 +185,12 @@ const ContractContent = ({
 
               <p className="mt-2">
                 By signing this contract, you are agreeing to burn 90% of your
-                2192 token supply ({ninetyPercent}). In doing so, you will be
-                air dropped Zorksees Token.
+                2192 tokens ({ninetyPercent}).
               </p>
 
               <p className="mt-2">
-                Further details will be shared on the official Keng Lernitas
-                twitter account:{" "}
+                More details will be shared on the official keng lernitas
+                Twitter account:{" "}
                 <a
                   href="https://twitter.com/KengLernitas"
                   className="text-blue-400 transition hover:text-blue-300"
