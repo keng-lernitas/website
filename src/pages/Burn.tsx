@@ -8,7 +8,7 @@ const Burn = () => {
         <Header />
 
         <img
-          src="/images/contact_section.png"
+          src="/images/contract_section.webp"
           className="mt-[6%] select-none"
           draggable={false}
         />
