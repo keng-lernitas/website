@@ -18,7 +18,7 @@ const Burn = () => {
 
           <img
             src="/images/contract_section.webp"
-            className="mt-[6%] select-none"
+            className="mt-[6%] aspect-[2148/2782] w-full select-none"
             draggable={false}
           />
 
