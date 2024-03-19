@@ -185,8 +185,8 @@ const ContractContent = ({
 
               <p className="mt-2">
                 By signing this contract, you are agreeing to burn 90% of your
-                2192 token supply ({ninetyPercent}). In doing so, you will will
-                be air dropped Zorksees Token.
+                2192 token supply ({ninetyPercent}). In doing so, you will be
+                air dropped Zorksees Token.
               </p>
 
               <p className="mt-2">
