@@ -6,7 +6,6 @@ import glori_data from "../static/glori_lyst.json";
 import { Table } from "../components/Table";
 
 import { toast } from "sonner";
-import { cn } from "../lib/utils";
 
 const columnHelper = createColumnHelper();
 
@@ -254,28 +253,6 @@ const DrawnBorder = () => {
         />
       </svg>
     </>
-  );
-};
-
-const Underline = ({ className }: { className: string }) => {
-  return (
-    <svg
-      viewBox="0 0 500 6"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn(
-        "pointer-events-none absolute left-0 h-full w-full overflow-visible text-[#d1b692]",
-        className,
-      )}
-    >
-      <path
-        d="M1.36084 2.04373C6.17637 2.04373 10.7742 1.61354 15.5572 1.61354C20.9132 1.61354 26.2569 2.36694 31.7133 2.47393C36.383 2.56549 40.9687 2.90412 45.6467 2.90412C50.701 2.90412 55.7108 4.1018 60.7273 4.19469C70.0838 4.36796 79.4839 4.19713 88.7854 3.7645C108.084 2.86687 127.518 3.7645 146.861 3.7645C160.853 3.7645 174.816 3.33431 188.829 3.33431C203.901 3.33431 219.065 3.76303 234.095 2.92802C241.902 2.4943 249.563 2.16279 257.421 2.04373C261.135 1.98746 264.782 1.18335 268.51 1.18335C272.496 1.18335 276.376 1.65695 280.34 2.04373C292.514 3.23142 304.716 3.33431 316.955 3.33431C332.808 3.33431 348.672 4.00679 364.562 3.35821C377.955 2.81158 391.51 3.33431 404.905 3.33431C411.661 3.33431 418.415 2.90412 425.196 2.90412C429.371 2.90412 433.411 3.33431 437.576 3.33431C447.12 3.33431 456.663 3.33431 466.207 3.33431C472.951 3.33431 479.432 4.19469 486.187 4.19469C490.371 4.19469 494.735 4.64373 498.663 3.33431"
-        vectorEffect="non-scaling-stroke"
-        className="stroke-[2] sm:stroke-[3] md:stroke-[4] lg:stroke-[5] xl:stroke-[6]"
-        stroke="currentColor"
-        stroke-linecap="round"
-      />
-    </svg>
   );
 };
 
