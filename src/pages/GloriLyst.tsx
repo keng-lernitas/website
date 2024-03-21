@@ -286,7 +286,7 @@ const GloriLyst = () => {
         <Header />
         <img
           src="/images/glori_lyst_background.webp"
-          className=" pointer-events-none z-0 ml-[2.5%] mt-[17%] aspect-[3693/6495] w-full scale-[118%] transform-gpu select-none"
+          className=" pointer-events-none z-0 ml-0 mt-[3.5%] aspect-[3190/6500] w-full scale-[102%] transform-gpu select-none"
         />
 
         <div className="absolute right-[-3%] top-[30%] z-50 flex w-[31%] -translate-x-1/2 items-center">
