@@ -170,6 +170,7 @@ const columns = [
           <img
             className="aspect-square w-[16%]"
             src="/images/zorksees_coin.png"
+            alt="zorksees coin"
           />
           <div className="relative">{value}</div>
         </div>
@@ -317,9 +318,6 @@ const GloriLyst = () => {
         </div>
 
         <h1 className="absolute left-1/2 top-[35%] translate-x-[-50%] text-center font-ScribbleChild text-[4.5dvw] leading-none tracking-wider text-keng-text lg:text-5xl lg:leading-none">
-          <div className="pointer-events-none absolute inset-0 h-full w-full">
-            <Underline className="top-full w-full text-[#d1b692]" />
-          </div>
           glori lyst epok 1
         </h1>
 
