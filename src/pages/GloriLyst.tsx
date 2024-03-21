@@ -289,7 +289,7 @@ const GloriLyst = () => {
           className=" pointer-events-none z-0 ml-0 mt-[3.5%] aspect-[3190/6500] w-full scale-[102%] transform-gpu select-none"
         />
 
-        <div className="absolute right-[-3%] top-[30%] z-50 flex w-[31%] -translate-x-1/2 items-center">
+        <div className="absolute right-[-3%] top-[28.3%] z-50 flex w-[31%] -translate-x-1/2 items-center">
           <KengButton type="epok1" className="flex-1" />
           <KengButton type="epok2" className="flex-1" />
         </div>
