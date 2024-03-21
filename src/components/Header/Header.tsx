@@ -16,8 +16,8 @@ const LINKS = [
     url: "https://dexscreener.com/optimism/0x7964625f7aec9b3274ec150b6df1b4aca30a91cf",
   },
   {
-    name: "memes",
-    url: "#",
+    name: "glori lyst",
+    url: "/glori-lyst",
   },
   {
     name: "info",
@@ -48,22 +48,37 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="absolute left-[3%] mt-[5%]  ">
-        <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-[0] lg:text-[1.65rem] lg:leading-[0]">
+      <div className="absolute left-[5%] mt-[5%]  ">
+        <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-none lg:text-[1.65rem] lg:leading-none">
           {LINKS.map((link, i) => (
-            <a
-              key={link.name}
-              href={link.url}
-              className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
-              target={link.name === "memes" ? "_self" : "_blank"}
-              rel="noreferrer"
-            >
-              <img
-                src={`/images/dots/dot-${(i + 1) % 4 || 4}.png`}
-                className="w-[8%]"
-              />
-              {link.name}
-            </a>
+            <>
+              {link.name === "glori lyst" ? (
+                <Link
+                  to={link.url}
+                  className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
+                >
+                  <img
+                    src={`/images/dots/dot-${(i + 1) % 4 || 4}.png`}
+                    className="absolute left-[-15%] w-[8%]"
+                  />
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
+                  target={link.name === "memes" ? "_self" : "_blank"}
+                  rel="noreferrer"
+                >
+                  <img
+                    src={`/images/dots/dot-${(i + 1) % 4 || 4}.png`}
+                    className="absolute left-[-15%] w-[8%]"
+                  />
+                  {link.name}
+                </a>
+              )}
+            </>
           ))}
         </div>
       </div>
