@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "../../lib/utils";
 
 interface KengButtonProps {
-  type?: "gold" | "red" | "info" | "seel";
+  type?: "gold" | "red" | "info" | "seel" | "epok1" | "epok2";
   className?: string;
   onClick?: () => void;
 }
@@ -12,12 +12,16 @@ const StaticState = {
   info: "/images/info-button.png",
   red: "/images/burn-button.png",
   seel: "/images/seel-button.png",
+  epok1: "/images/epok1-button.png",
+  epok2: "/images/epok2-button.png",
 };
 const HoverState = {
   gold: "/images/buy-button-hover.png",
   red: "/images/burn-button-hover.png",
   info: "/images/info-button-hover.png",
   seel: "/images/seel-button-hover.png",
+  epok1: "/images/epok1-button-hover.png",
+  epok2: "/images/epok2-button-hover.png",
 };
 
 const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {

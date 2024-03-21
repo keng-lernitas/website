@@ -18,6 +18,7 @@ import {
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton } from "..";
+import { useLocation } from "react-router-dom";
 
 const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
 const DEAD_ADDRESS = "0x000000000000000000000000000000000000dead";
@@ -219,7 +220,7 @@ const ContractContent = ({
 
         {contractState === "transaction_success" && (
           <div className="py-6">
-            <p className="font-ScribbleHand text-neural-50 text-balance text-center text-3xl">
+            <p className="text-neural-50 text-balance text-center font-ScribbleHand text-3xl">
               fank u for ur davosan
             </p>
             <p className="mt-2 text-balance text-center  font-ScribbleChild text-sm leading-6 tracking-widest text-neutral-400 ">

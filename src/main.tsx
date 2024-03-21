@@ -12,6 +12,7 @@ import {
 import { WagmiProvider } from "wagmi";
 import { optimism } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 
 import merge from "lodash.merge";
 
@@ -21,7 +22,7 @@ const queryClient = new QueryClient();
 
 export const WAGMICONFIG = getDefaultConfig({
   appName: "keng lernitas",
-  projectId: "1337",
+  projectId: "1",
   chains: [optimism],
   ssr: false, // If your dApp uses server side rendering (SSR)
 });
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <WagmiProvider config={WAGMICONFIG}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider theme={LernitasTheme}>
+          <Toaster />
           <AppRoutes />
         </RainbowKitProvider>
       </QueryClientProvider>
