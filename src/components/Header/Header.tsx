@@ -13,7 +13,7 @@ const LINKS = [
   },
   {
     name: "chart",
-    url: "https://dexscreener.com/optimism/0x7964625f7aec9b3274ec150b6df1b4aca30a91cf",
+    url: "https://dexscreener.com/optimism/0x0e9da98191551c417d25bebe69f2cbe47dfb186f",
   },
   {
     name: "glori lyst",
