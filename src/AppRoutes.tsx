@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Burn from "./pages/Burn";
 import ComingSoon from "./pages/ComingSoon";
 import GloriLyst from "./pages/GloriLyst";
+import Batel from "./pages/Batel";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,8 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/burn" element={<Burn />} />
         <Route path="/glori-lyst" element={<GloriLyst />} />
+
+        <Route path="/batel" element={<Batel />} />
       </Routes>
     </BrowserRouter>
   );
