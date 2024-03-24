@@ -19,7 +19,7 @@ const Batel = () => {
         />
 
         <KengButton
-          type="defund"
+          type="defind"
           className="absolute left-[53%] top-[42%]  z-50 w-[16%] -translate-x-1/2"
         />
 

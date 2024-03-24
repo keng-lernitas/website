@@ -10,7 +10,7 @@ interface KengButtonProps {
     | "epok1"
     | "epok2"
     | "atak"
-    | "defund";
+    | "defind";
   className?: string;
   onClick?: () => void;
 }
@@ -23,7 +23,7 @@ const StaticState = {
   epok1: "/images/epok1-button.png",
   epok2: "/images/epok2-button.png",
   atak: "/images/atak-button.png",
-  defund: "/images/defund-button.png",
+  defind: "/images/defind-button.png",
 };
 const HoverState = {
   gold: "/images/buy-button-hover.png",
@@ -33,7 +33,7 @@ const HoverState = {
   epok1: "/images/epok1-button-hover.png",
   epok2: "/images/epok2-button-hover.png",
   atak: "/images/atak-button-hover.png",
-  defund: "/images/defund-button-hover.png",
+  defind: "/images/defind-button-hover.png",
 };
 
 const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
