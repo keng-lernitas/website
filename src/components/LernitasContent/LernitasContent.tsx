@@ -99,19 +99,21 @@ const LernitasContent = ({
       return;
     }
 
-    writeContract(
-      {
-        address: CA2192,
-        abi: CONTRACT_ABI,
-        functionName: "transfer",
-        args: [DEAD_ADDRESS, walletPercentageBigInt],
-      },
-      {
-        onSuccess: () => {
-          setContractState("transaction_pending");
-        },
-      },
-    );
+    // writeContract(
+    //   {
+    //     address: CA2192,
+    //     abi: CONTRACT_ABI,
+    //     functionName: "transfer",
+    //     args: [DEAD_ADDRESS, walletPercentageBigInt],
+    //   },
+    //   {
+    //     onSuccess: () => {
+    //       setContractState("transaction_pending");
+    //     },
+    //   },
+    // );
+
+    alert("Not implemented yet");
   };
 
   return (
