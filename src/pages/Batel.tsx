@@ -10,8 +10,13 @@ import {
   ZorkseesModal,
   ZorkseesQuotes,
 } from "../components";
+import { cn } from "../lib/utils";
+import { useRecoilState } from "recoil";
+import { sportansVisible } from "../atoms/sportans";
 
 const Batel = () => {
+  const [visible, setVisible] = useRecoilState(sportansVisible);
+
   const [lernitasModalOpen, setLernitasModalOpen] = useState(false);
   const [zorkseesModalOpen, setZorkseesModalOpen] = useState(false);
 
@@ -23,6 +28,14 @@ const Batel = () => {
       <div className="mx-auto min-h-[100dvh] max-w-5xl">
         <div className="relative h-full ">
           <Header />
+
+          <img
+            src="/images/efaltez.png"
+            className={cn(
+              visible ? "right-[-2%] top-[18%]" : "right-[5%] top-[20%]",
+              "absolute  w-[20%] transition-all",
+            )}
+          />
 
           <img
             src="/images/batel_background.webp"

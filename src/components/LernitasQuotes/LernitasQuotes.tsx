@@ -26,7 +26,10 @@ const LernitasQuotes = () => {
   const [currentTimeout, setCurrentTimeout] = useState<any>(null);
 
   const handleLernitasClicked = () => {
-    var cq = Math.floor(Math.random() * QUOTE_LIST.length);
+    // play /audio/poke.mp3
+    let audio = new Audio("/audio/poke.mp3");
+    audio.volume = 0.05;
+    audio.play();
 
     setCurrentQuote((prev) => (prev + 1) % QUOTE_LIST.length);
     setQuoteVisible(true);

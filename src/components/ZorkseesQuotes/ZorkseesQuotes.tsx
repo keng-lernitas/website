@@ -15,6 +15,11 @@ const ZorkseesQuotes = () => {
   const handleZorkseesClicked = () => {
     setQuoteVisible(true);
 
+    // play /audio/poke.mp3
+    let audio = new Audio("/audio/poke.mp3");
+    audio.volume = 0.1;
+    audio.play();
+
     const timeout = setTimeout(() => {
       setQuoteVisible(false);
     }, 750);
