@@ -160,20 +160,18 @@ const LernitasContent = ({
                   className="h-12 rounded-lg border border-neutral-700/50 bg-neutral-700/20"
                 />
                 <div className="flex flex-col">
-                  <p className="text-sm font-medium text-neutral-300">
-                    2192 Tokens
-                  </p>
+                  <p className="text-sm font-medium text-neutral-300">2192</p>
                   <p className=" text-neutral-200">
                     {isLoading ? "Loading Balance..." : <>{tokenBalance}</>}
                   </p>
                 </div>
               </div>
 
-              <ArrowRightIcon className="size-6" />
+              <ArrowRightIcon className="size-3 sm:size-4 lg:size-6" />
 
               <div className="flex flex-1 items-center gap-2 rounded-2xl border  border-neutral-700 bg-neutral-800 p-2">
                 <div className="relative flex h-12 w-12 items-center justify-center overflow-clip rounded-lg border border-neutral-700/50 bg-neutral-700/20">
-                  <div className="from-keng-gold-dark absolute inset-0 top-1/2 bg-gradient-to-b to-keng-gold blur-md"></div>
+                  <div className="absolute inset-0 top-1/2 bg-gradient-to-b from-keng-gold-dark to-keng-gold blur-md"></div>
 
                   <img
                     src="/images/shield_sm.png"

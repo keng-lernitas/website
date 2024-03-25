@@ -161,7 +161,7 @@ const ZorkseesContent = ({
                 />
                 <div className="flex flex-col">
                   <p className="text-sm font-medium text-neutral-300">
-                    Zorksees Tokens
+                    Zorksees
                   </p>
                   <p className=" text-neutral-200">
                     {isLoading ? "Loading Balance..." : <>{tokenBalance}</>}
@@ -169,7 +169,7 @@ const ZorkseesContent = ({
                 </div>
               </div>
 
-              <ArrowRightIcon className="size-6" />
+              <ArrowRightIcon className="size-3 sm:size-4 lg:size-6" />
 
               <div className="flex flex-1 items-center gap-2 rounded-2xl border  border-neutral-700 bg-neutral-800 p-2">
                 <div className="relative flex h-12 w-12 items-center justify-center overflow-clip rounded-lg border border-neutral-700/50 bg-neutral-700/20">

@@ -28,22 +28,6 @@ const ZorkseesModal = ({ open, setOpen }: ZorkseesModalProps) => {
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto overflow-x-clip">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 ">
-            {showZorksees && (
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <img
-                  src="/images/zorksees_efaltez.webp"
-                  className="pointer-events-none absolute mx-auto w-64 translate-x-[50%] translate-y-[-70%]"
-                />
-              </Transition.Child>
-            )}
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -53,7 +37,7 @@ const ZorkseesModal = ({ open, setOpen }: ZorkseesModalProps) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-clip rounded-3xl border border-neutral-700 bg-neutral-900 px-4 pb-4 pt-5 text-left font-MonaSans shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+              <Dialog.Panel className="relative w-full max-w-md transform overflow-clip rounded-3xl border border-neutral-700 bg-neutral-900 px-4 pb-4 pt-5 text-left font-MonaSans shadow-xl transition-all sm:my-8 sm:max-w-lg sm:p-6">
                 <div className="pointer-events-none absolute inset-0 aspect-square w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/20  blur-3xl"></div>
 
                 <div className="absolute right-0 top-0 z-50 hidden pr-4 pt-4 sm:block">
