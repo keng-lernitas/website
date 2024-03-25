@@ -38,7 +38,7 @@ const GetInitialLaunchDate = () => {
   const now = moment().tz("America/Los_Angeles");
 
   // Launch date and time in "America/Los_Angeles" timezone
-  const d = "2024-04-09T09:00:00";
+  const d = "2024-03-28T09:00:00";
 
   const launch = moment.tz(d, "YYYY-MM-DDTHH:mm:ss", "America/Los_Angeles");
 
@@ -130,7 +130,7 @@ const Countdown = ({
       //     ease: "easeIn",
       //     delay: 1,
       //   }}
-      className="text-keng-gold-dark z-50 flex select-none items-center justify-center gap-x-[0%] font-ScribbleChild text-[4.5vw] font-extrabold leading-none tracking-widest transition lg:text-5xl  lg:leading-none"
+      className="z-50 flex select-none items-center justify-center gap-x-[0%] font-ScribbleChild text-[4vw] font-extrabold leading-none tracking-widest text-keng-gold-dark transition lg:text-[2.6rem]  lg:leading-none"
     >
       <span className="tabular-nums">{days}</span>
       <span className="-mt-0.5">:</span>

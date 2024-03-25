@@ -19,7 +19,7 @@ const Perzans = () => {
             {[...Array(BASE_SIZE + (i % 2))].map((_, j) => (
               <div
                 key={j}
-                className="group relative aspect-square w-[6%] rounded-full"
+                className="group relative aspect-square w-[6%] cursor-pointer rounded-full"
                 onClick={handleClick}
               >
                 <img

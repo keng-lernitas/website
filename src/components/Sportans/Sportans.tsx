@@ -35,7 +35,7 @@ const Sportans = () => {
             {[...Array(BASE_SIZE - i)].map((_, j) => (
               <div
                 key={j}
-                className="group relative z-50 aspect-square w-[6.5%] rounded-full"
+                className="group relative z-50 aspect-square w-[6.5%] cursor-pointer rounded-full"
                 onClick={handleClick}
               >
                 <img
