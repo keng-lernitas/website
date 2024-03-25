@@ -4,9 +4,11 @@ import {
   Header,
   KengButton,
   LernitasModal,
+  LernitasQuotes,
   Perzans,
   Sportans,
   ZorkseesModal,
+  ZorkseesQuotes,
 } from "../components";
 
 const Batel = () => {
@@ -45,31 +47,9 @@ const Batel = () => {
 
           <Perzans />
 
-          <div className="group absolute right-[1%] top-[37.1%] w-[31%]">
-            <img
-              src="/images/kenglernitas_idle.webp"
-              className="absolute opacity-100 group-hover:opacity-0"
-              draggable={false}
-            />
-            <img
-              src="/images/kenglernitas_angry.webp"
-              className="absolute opacity-0 group-hover:opacity-100"
-              draggable={false}
-            />
-          </div>
+          <LernitasQuotes />
 
-          <div className="group absolute left-[18%] top-[54.2%] w-[31%]">
-            <img
-              src="/images/zorksees_idle.webp"
-              className="absolute opacity-100 group-hover:opacity-0"
-              draggable={false}
-            />
-            <img
-              src="/images/zorksees_angry.webp"
-              className="absolute opacity-0 group-hover:opacity-100"
-              draggable={false}
-            />
-          </div>
+          <ZorkseesQuotes />
 
           {/* <a
           href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"

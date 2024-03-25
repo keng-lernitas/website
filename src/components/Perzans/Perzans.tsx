@@ -4,6 +4,13 @@ const Perzans = () => {
   const LINES = 12;
   const BASE_SIZE = 12;
 
+  const handleClick = () => {
+    // play /audio/scream.mp3
+    let audio = new Audio("/audio/scream.mp3");
+    audio.volume = 0.1;
+    audio.play();
+  };
+
   return (
     <div className="absolute left-[54%] top-[73%] w-[80%] -translate-x-1/2 ">
       <div className="flex flex-col space-y-[0.80%]">
@@ -13,6 +20,7 @@ const Perzans = () => {
               <div
                 key={j}
                 className="group relative aspect-square w-[6%] rounded-full"
+                onClick={handleClick}
               >
                 <img
                   src="/images/perzan_head.png"

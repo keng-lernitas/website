@@ -156,8 +156,8 @@ const ZorkseesContent = ({
             <div className="mt-4 flex items-center gap-2">
               <div className="flex flex-1 items-center gap-2 rounded-2xl border  border-neutral-700 bg-neutral-800 p-2">
                 <img
-                  src="/images/perzan_head.png"
-                  className="size-12 rounded-lg border border-neutral-700/50 bg-neutral-700/20"
+                  src="/images/zorksees_head.png"
+                  className="size-12 rounded-lg border border-neutral-700/50 bg-neutral-700/20 p-0.5"
                 />
                 <div className="flex flex-col">
                   <p className="text-sm font-medium text-neutral-300">

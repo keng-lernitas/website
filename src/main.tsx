@@ -18,6 +18,8 @@ import merge from "lodash.merge";
 
 import "@rainbow-me/rainbowkit/styles.css";
 
+import { RecoilRoot } from "recoil";
+
 const queryClient = new QueryClient();
 
 export const WAGMICONFIG = getDefaultConfig({
@@ -38,8 +40,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <WagmiProvider config={WAGMICONFIG}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider theme={LernitasTheme}>
-          <Toaster />
-          <AppRoutes />
+          <RecoilRoot>
+            <Toaster />
+            <AppRoutes />
+          </RecoilRoot>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

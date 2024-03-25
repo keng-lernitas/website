@@ -11,5 +11,7 @@ export { LernitasModal } from "./LernitasModal";
 export { LernitasContent } from "./LernitasContent";
 export { ZorkseesModal } from "./ZorkseesModal";
 export { ZorkseesContent } from "./ZorkseesContent";
+export { LernitasQuotes } from "./LernitasQuotes";
+export { ZorkseesQuotes } from "./ZorkseesQuotes";
 
 export { Slider } from "./Slider";
