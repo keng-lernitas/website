@@ -52,7 +52,7 @@ const ZorkseesQuotes = () => {
       </div>
 
       {quoteVisible && (
-        <h2 className="absolute left-[48%] top-[57%] max-w-[27%] text-center font-ScribbleChild text-2xl text-black">
+        <h2 className="absolute left-[48%] top-[57%] max-w-[27%] text-center font-ScribbleChild text-[2.3dvw] leading-none text-black lg:text-2xl lg:leading-none">
           slorta dem!
         </h2>
       )}

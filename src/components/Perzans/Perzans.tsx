@@ -24,12 +24,12 @@ const Perzans = () => {
               >
                 <img
                   src="/images/perzan_head.png"
-                  className="absolute left-0 top-0 h-full w-full scale-50 select-none transition-all [filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)] group-hover:left-[17%] group-hover:top-[-40%] group-hover:scale-100"
+                  className="absolute left-0 top-0 h-full w-full scale-50 select-none transition-all [filter:_drop-shadow(0.15rem_0.25rem_0px_#5b4328)] group-hover:left-[17%] group-hover:top-[-40%] group-hover:scale-100 md:[filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)]"
                   draggable={false}
                 />
                 <img
                   src="/images/perzan_shield.png"
-                  className="relative size-full select-none transition-all [filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)] group-hover:translate-y-[5%]"
+                  className="relative size-full select-none transition-all [filter:_drop-shadow(0.15rem_0.25rem_0px_#5b4328)] group-hover:translate-y-[5%] md:[filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)]"
                   draggable={false}
                 />
               </div>

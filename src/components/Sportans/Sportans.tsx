@@ -45,7 +45,7 @@ const Sportans = () => {
                       ? "left-[17%] top-[-30%] scale-100"
                       : "left-0 top-0 scale-50 group-hover:left-[17%] group-hover:top-[-30%] group-hover:scale-100",
 
-                    "absolute  h-full w-full select-none transition-all  [filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)]     ",
+                    "absolute  h-full w-full select-none transition-all  [filter:_drop-shadow(0.15rem_0.25rem_0px_#5b4328)] md:[filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)]",
                   )}
                   draggable={false}
                 />
@@ -56,7 +56,7 @@ const Sportans = () => {
                       ? "translate-y-[5%]"
                       : "group-hover:translate-y-[5%]",
 
-                    "relative size-full select-none transition-all [filter:_drop-shadow(0.3rem_0.3rem_0px_#5b4328)] ",
+                    "relative size-full select-none transition-all [filter:_drop-shadow(0.15rem_0.15rem_0px_#5b4328)] md:[filter:_drop-shadow(0.3rem_0.3rem_0px_#5b4328)] ",
                   )}
                   draggable={false}
                 />

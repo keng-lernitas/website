@@ -50,6 +50,11 @@ const LernitasQuotes = () => {
   useEffect(() => {
     if (QUOTE_LIST[currentQuote] === "TU BATEL!!!") {
       setVisible(true);
+
+      // play audio/sportin_battlecry.wav
+      let audio = new Audio("/audio/sportin_battlecry.wav");
+      audio.volume = 0.1;
+      audio.play();
     } else {
       setVisible(false);
     }
@@ -81,7 +86,7 @@ const LernitasQuotes = () => {
       </div>
 
       {quoteVisible && (
-        <h2 className="absolute right-[20%] top-[48%] w-full max-w-[27%] text-center font-ScribbleChild text-2xl text-black">
+        <h2 className="absolute right-[20%] top-[48%] w-full max-w-[27%] text-center font-ScribbleChild  text-[2.3dvw] leading-none text-black lg:text-2xl lg:leading-none">
           {QUOTE_LIST[currentQuote]}
         </h2>
       )}

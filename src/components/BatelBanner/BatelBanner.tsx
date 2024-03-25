@@ -30,16 +30,16 @@ const BatelBanner = () => {
   return (
     <div className="absolute left-[57%] top-[7.25%] flex w-[63%] -translate-x-1/2 items-center justify-between gap-x-[1%] p-[1%]">
       <div className="flex-center flex flex-1 flex-col items-center space-y-[3%]">
-        <h1 className="text-keng-gold-dark font-ScribbleChild text-[3vw]  leading-none lg:text-4xl lg:leading-none">
+        <h1 className="font-ScribbleChild text-[3vw] leading-none  text-keng-gold-dark lg:text-4xl lg:leading-none">
           batel 1
         </h1>
 
         <Countdown />
       </div>
 
-      <div className="text-keng-gold-dark flex flex-1 flex-col space-y-[5%] font-ScribbleChild">
+      <div className="flex flex-1 flex-col space-y-[5%] font-ScribbleChild text-keng-gold-dark">
         <div className="space-y-[2.5%]">
-          <div className="flex justify-between leading-none lg:text-xl lg:leading-none">
+          <div className="flex justify-between text-[1.9dvw] leading-none lg:text-xl lg:leading-none">
             <div>lernitas:</div>
             <div className="text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
               {tokenBalance}
@@ -75,7 +75,7 @@ const BatelBanner = () => {
           </div>
         </div>
         <div className="space-y-[2.5%]">
-          <div className="flex justify-between leading-none lg:text-xl lg:leading-none">
+          <div className="flex justify-between text-[1.9dvw] leading-none lg:text-xl lg:leading-none">
             <div>zorksees:</div>
             <div className="text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
               {tokenBalance}
