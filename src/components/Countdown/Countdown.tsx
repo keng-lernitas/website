@@ -130,7 +130,7 @@ const Countdown = ({
       //     ease: "easeIn",
       //     delay: 1,
       //   }}
-      className="z-50 flex select-none items-center justify-center gap-x-[0%] font-ScribbleChild text-[4.5vw] font-extrabold leading-none tracking-widest text-keng-gold transition lg:text-5xl  lg:leading-none"
+      className="text-keng-gold-dark z-50 flex select-none items-center justify-center gap-x-[0%] font-ScribbleChild text-[4.5vw] font-extrabold leading-none tracking-widest transition lg:text-5xl  lg:leading-none"
     >
       <span className="tabular-nums">{days}</span>
       <span className="-mt-0.5">:</span>

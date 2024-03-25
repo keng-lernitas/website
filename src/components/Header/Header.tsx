@@ -51,7 +51,7 @@ const Header = () => {
       <div className="absolute left-[5%] mt-[5%]  ">
         <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-none lg:text-[1.65rem] lg:leading-none">
           {LINKS.map((link, i) => (
-            <>
+            <React.Fragment key={link.name}>
               {link.name === "glori lyst" ? (
                 <Link
                   to={link.url}
@@ -78,7 +78,7 @@ const Header = () => {
                   {link.name}
                 </a>
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

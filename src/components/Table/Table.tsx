@@ -25,7 +25,7 @@ const LeftBorder = () => {
         stroke="currentColor"
         vectorEffect="non-scaling-stroke"
         className="stroke-[2] sm:stroke-[3] md:stroke-[4] lg:stroke-[5] xl:stroke-[6]"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -44,7 +44,7 @@ const BottomBorder = () => {
         vectorEffect="non-scaling-stroke"
         className="stroke-[2] sm:stroke-[3] md:stroke-[4] lg:stroke-[5] xl:stroke-[6]"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -66,7 +66,7 @@ const TopBorder = ({ className }: { className?: string }) => {
         vectorEffect="non-scaling-stroke"
         className="stroke-[2] sm:stroke-[3] md:stroke-[4] lg:stroke-[5] xl:stroke-[6]"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -85,7 +85,7 @@ const RightBorder = () => {
         stroke="currentColor"
         vectorEffect="non-scaling-stroke"
         className="stroke-[2] sm:stroke-[3] md:stroke-[4] lg:stroke-[5] xl:stroke-[6]"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -102,20 +102,20 @@ const Frown = ({ className }: { className: string }) => {
       <path
         d="M1 2.53326C1.74306 3.36921 2.1272 5.83961 2.44806 6.96264C2.77494 8.10669 2.91656 9.00122 2.91656 10.1995"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <path
         d="M17.8656 1C18.7866 1.20466 20.1655 7.5028 20.1655 8.66622"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <path
         d="M2.9165 28.2151C2.9165 25.5225 6.44446 23.3668 8.19768 21.6136C10.7198 19.0915 13.8913 19.3989 17.2907 19.3989C20.9032 19.3989 22.2099 22.9506 24.1477 25.319C24.647 25.9293 25.4589 27.5141 25.83 28.2151C26.2488 29.0063 25.8145 30.4646 26.6818 30.8983"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
     </svg>
   );

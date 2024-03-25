@@ -38,7 +38,7 @@ const HoverState = {
 
 const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
   const handleMouseOver = () => {
-    const audio = new Audio("/audio/button_hover.wav");
+    const audio = new Audio("/audio/button_hover.mp3");
     audio.volume = 0.5;
     audio.play();
   };

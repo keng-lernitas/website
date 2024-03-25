@@ -11,12 +11,14 @@ import CONTRACT_ABI from "../../static/2192-abi.json";
 import { FireIcon } from "@heroicons/react/24/outline";
 import { WAGMICONFIG } from "../../main";
 import {
+  ArrowRightIcon,
   CheckCircleIcon,
   ExclamationTriangleIcon,
+  ShieldExclamationIcon,
 } from "@heroicons/react/24/solid";
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
-import { CustomConnectButton } from "..";
+import { CustomConnectButton, Slider } from "..";
 
 const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
 const DEAD_ADDRESS = "0x000000000000000000000000000000000000dead";
@@ -26,7 +28,7 @@ interface ContractReadResult {
   isLoading: boolean;
 }
 
-interface ContractContentProps {
+interface LernitasContentProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setShowZorksees: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,11 +40,13 @@ const calculatePercentage = (startingNumber: bigint, percentage: number) => {
   return (startingNumber * BigInt(percentage)) / BigInt(100);
 };
 
-const ContractContent = ({
+const LernitasContent = ({
   open,
   setOpen,
   setShowZorksees,
-}: ContractContentProps) => {
+}: LernitasContentProps) => {
+  const [walletPercentage, setWalletPercentage] = useState(0);
+
   const { address, isConnected } = useAccount();
   const [contractState, setContractState] = useState<ContractStateType>("idle");
 
@@ -61,12 +65,14 @@ const ContractContent = ({
       ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 15))) / 1000
       : 0;
 
-  const ninetyPercentBigInt =
-    balanceBigInt !== undefined ? calculatePercentage(balanceBigInt, 90) : 0;
+  const walletPercentageBigInt =
+    balanceBigInt !== undefined
+      ? calculatePercentage(balanceBigInt, walletPercentage)
+      : 0;
 
-  const ninetyPercent =
-    ninetyPercentBigInt !== undefined
-      ? Number(BigInt(ninetyPercentBigInt) / BigInt(Math.pow(10, 15))) / 1000
+  const walletPercentageDisplay =
+    walletPercentageBigInt !== undefined
+      ? Number(BigInt(walletPercentageBigInt) / BigInt(Math.pow(10, 15))) / 1000
       : 0;
 
   const {
@@ -98,7 +104,7 @@ const ContractContent = ({
         address: CA2192,
         abi: CONTRACT_ABI,
         functionName: "transfer",
-        args: [DEAD_ADDRESS, ninetyPercentBigInt],
+        args: [DEAD_ADDRESS, walletPercentageBigInt],
       },
       {
         onSuccess: () => {
@@ -109,19 +115,19 @@ const ContractContent = ({
   };
 
   return (
-    <>
+    <div className="relative">
       <div className="sm:flex sm:items-center">
         <div
           className={cn(
             contractState !== "transaction_success"
-              ? "border-red-500/30 bg-red-500/20"
+              ? "border-keng-gold/30 bg-keng-gold/20"
               : "border-green-700/30 bg-green-700/20",
             "mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border  sm:mx-0 sm:h-10 sm:w-10",
           )}
         >
           {contractState !== "transaction_success" ? (
-            <ExclamationTriangleIcon
-              className="h-6 w-6 text-red-500"
+            <ShieldExclamationIcon
+              className="h-6 w-6 text-keng-gold"
               aria-hidden="true"
             />
           ) : (
@@ -138,7 +144,7 @@ const ContractContent = ({
           >
             {contractState === "transaction_success"
               ? "contrakt sined"
-              : "Burn 90% of 2192 Tokens"}
+              : "halp da sportinz"}
           </Dialog.Title>
         </div>
       </div>
@@ -147,7 +153,7 @@ const ContractContent = ({
 
         {isConnected && contractState === "idle" && (
           <div>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex items-center gap-2">
               <div className="flex flex-1 items-center gap-2 rounded-2xl border  border-neutral-700 bg-neutral-800 p-2">
                 <img
                   src="/images/lernitas-icon.png"
@@ -163,28 +169,55 @@ const ContractContent = ({
                 </div>
               </div>
 
+              <ArrowRightIcon className="size-6" />
+
               <div className="flex flex-1 items-center gap-2 rounded-2xl border  border-neutral-700 bg-neutral-800 p-2">
                 <div className="relative flex h-12 w-12 items-center justify-center overflow-clip rounded-lg border border-neutral-700/50 bg-neutral-700/20">
-                  <div className="absolute inset-0 top-1/2 bg-gradient-to-b from-orange-600/60 to-red-600/60 blur-md"></div>
-                  <FireIcon className="relative h-8 text-neutral-100" />
+                  <div className="from-keng-gold-dark absolute inset-0 top-1/2 bg-gradient-to-b to-keng-gold blur-md"></div>
+
+                  <img
+                    src="/images/shield_sm.png"
+                    className="relative h-12 rounded-lg border border-neutral-700/50 bg-neutral-700/20 p-1"
+                  />
                 </div>
+
                 <div className="flex flex-col">
                   <p className="text-sm font-medium text-neutral-300">
-                    Burnable Tokens
+                    War Aid
                   </p>
                   <p className=" text-neutral-200">
-                    {isLoading ? "Loading Balance..." : <>{ninetyPercent}</>}
+                    {isLoading ? (
+                      "Loading Balance..."
+                    ) : (
+                      <>{walletPercentageDisplay}</>
+                    )}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
+            {/* Input slider */}
+
+            <div className="py-4">
+              <div className="mb-1.5 flex justify-between">
+                <p className="text-sm font-medium">Tokens Committed</p>
+                <p className="text-sm font-medium">{walletPercentage}%</p>
+              </div>
+              <Slider
+                defaultValue={[50]}
+                max={100}
+                step={1}
+                onValueChange={(value) => setWalletPercentage(value[0])}
+                value={[walletPercentage]}
+                // className={cn("w-[60%]")}
+              />
+            </div>
+            {/* <div className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
               <p className="font-bold">CAUTION:</p>
 
               <p className="mt-2">
                 By signing this contract, you are agreeing to burn 90% of your
-                2192 tokens ({ninetyPercent}).
+                2192 tokens ({walletPercentageDisplay}).
               </p>
 
               <p className="mt-2">
@@ -199,7 +232,7 @@ const ContractContent = ({
                   @KengLernitas
                 </a>
               </p>
-            </div>
+            </div> */}
           </div>
         )}
 
@@ -233,7 +266,7 @@ const ContractContent = ({
               type="button"
               className="inline-flex w-full justify-center rounded-md border-t border-t-red-400 bg-red-600 px-3 py-2 text-sm font-semibold text-red-50 shadow  transition hover:bg-red-700  sm:w-auto"
               onClick={handleBurnTokens}
-              disabled={contractState !== "idle"}
+              disabled={contractState !== "idle" || isPending}
             >
               {isPending ? "Signing Contract..." : "Sign Contract"}
             </button>
@@ -249,8 +282,8 @@ const ContractContent = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default ContractContent;
+export default LernitasContent;
