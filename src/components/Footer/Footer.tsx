@@ -65,19 +65,21 @@ const Footer = ({ className }: FooterProps) => {
             target="_blank"
             className="transition hover:brightness-50"
           >
-            <Twitter className="size-6" />
+            <Twitter className="size-5 text-neutral-200" />
           </a>
           <a
             href="https://t.me/Keng_Lernitas"
             target="_blank"
             className="transition hover:brightness-50"
           >
-            <Telegram className="size-6" />
+            <Telegram className="size-5 text-neutral-200" />
           </a>
         </div>
 
         <div className="col-span-2 flex items-center justify-center">
-          <p className="font-MonaSans">info@kenglernitas.wtf</p>
+          <p className="font-MonaSans font-medium text-neutral-200">
+            info@kenglernitas.wtf
+          </p>
         </div>
       </div>
     </div>
