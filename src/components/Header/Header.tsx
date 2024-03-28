@@ -16,10 +16,6 @@ const LINKS = [
     url: "https://twitter.com/KengLernitas",
   },
   {
-    name: "chart",
-    url: "https://dexscreener.com/optimism/0x0e9da98191551c417d25bebe69f2cbe47dfb186f",
-  },
-  {
     name: "glori lyst",
     url: "/glori-lyst",
   },
@@ -52,7 +48,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="absolute left-[5%] mt-[1%]  ">
+      <div className="absolute left-[5%] mt-[2%]  ">
         <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-none lg:text-[1.65rem] lg:leading-none">
           {LINKS.map((link, i) => (
             <React.Fragment key={link.name}>
