@@ -33,7 +33,7 @@ const Home = () => {
             rel="noreferrer noopener"
             className="block  text-keng-red transition hover:text-red-500 "
           >
-            Lernitas CA - 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
+            Lernitas CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
           </a>
           <a
             href="https://solscan.io/token/9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE"
@@ -41,7 +41,7 @@ const Home = () => {
             rel="noreferrer noopener"
             className="block  text-keng-red transition hover:text-red-500 "
           >
-            Zorksees CA - 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
+            Zorksees CA: 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
           </a>
         </div>
       </div>
