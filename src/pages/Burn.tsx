@@ -23,7 +23,7 @@ const Burn = () => {
 
           <div className="absolute right-[6%] top-[10%] flex h-[10%] w-[70%] flex-col items-center justify-center p-[1%] font-ScribbleChild text-lg text-keng-gold">
             <div className="text-[1.6dvw] leading-none lg:text-base lg:leading-none">
-              epok 1 has ended
+              epok 1 haz endud
             </div>
 
             <div className="mb-[2%] mt-[2%] text-[3.5dvw] leading-none lg:text-4xl lg:leading-none">

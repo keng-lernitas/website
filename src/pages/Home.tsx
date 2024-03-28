@@ -1,6 +1,7 @@
 import React from "react";
 import { Header, KengButton } from "../components";
 import { Footer } from "../components/Footer";
+import { Twitter } from "../components/Footer/Footer";
 
 const Home = () => {
   const handleBuyClicked = () => {
@@ -18,7 +19,7 @@ const Home = () => {
         {/* website graphic */}
         <KengButton
           type="info"
-          className="absolute left-1/2 top-[50.5%]  z-50 w-[20%] -translate-x-1/2"
+          className="absolute left-1/2 top-[50%]  z-50 w-[20%] -translate-x-1/2"
           onClick={handleBuyClicked}
         />
 
@@ -27,7 +28,7 @@ const Home = () => {
           className=" pointer-events-none z-0 ml-[-6%] mt-[28%] aspect-[4235/6493] w-full scale-[135%] transform-gpu select-none"
         />
 
-        <div className="mb-[2%] mt-[30%] grid space-y-[1%] text-center font-ScribbleChild text-[2.5dvw] md:grid-cols-2 md:text-[1.5dvw] lg:text-base">
+        <div className="mb-[2%] mt-[30%] grid space-y-[4%] text-center font-ScribbleChild text-[2.5dvw] md:grid-cols-2 md:space-y-0 md:text-[1.5dvw] lg:text-base">
           <div className="flex flex-col justify-center space-y-[2%]">
             <a
               href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
@@ -47,6 +48,7 @@ const Home = () => {
               >
                 <img src="/images/DEXTools.png" />
               </a>
+
               <a
                 href="https://dexscreener.com/optimism/0x0e9da98191551c417d25bebe69f2cbe47dfb186f"
                 target="_blank"
@@ -56,6 +58,13 @@ const Home = () => {
                 <img src="/images/DexScreener.png" />
               </a>
             </div>
+            <a
+              href="https://twitter.com/KengLernitas"
+              target="_blank"
+              className="mx-auto transition hover:brightness-50"
+            >
+              <Twitter className="size-5" />
+            </a>
           </div>
 
           <div className="flex flex-col justify-center space-y-[2%]">
@@ -77,6 +86,7 @@ const Home = () => {
               >
                 <img src="/images/DEXTools.png" />
               </a>
+
               <a
                 href="https://dexscreener.com/solana/d3ciqhjv8hugcprn9j4tyourv14qwhukjkxhr9zjr5wo"
                 target="_blank"
@@ -86,6 +96,13 @@ const Home = () => {
                 <img src="/images/DexScreener.png" />
               </a>
             </div>
+            <a
+              href="https://twitter.com/zorksees"
+              target="_blank"
+              className="mx-auto transition hover:brightness-50"
+            >
+              <Twitter className="size-5" />
+            </a>
           </div>
         </div>
 

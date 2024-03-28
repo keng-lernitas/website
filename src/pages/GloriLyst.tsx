@@ -31,7 +31,7 @@ const columns = [
       return <span className="block w-full text-center">{value}</span>;
     },
   }),
-  columnHelper.accessor("recipient_address", {
+  columnHelper.accessor("Address", {
     header: () => "adrez",
     cell: (cell) => {
       let value: string = cell.getValue();
@@ -155,10 +155,10 @@ const columns = [
       );
     },
   }),
-  columnHelper.accessor("Total Points", {
-    header: () => "ponts",
-  }),
   columnHelper.accessor("percentage", {
+    header: () => "%",
+  }),
+  columnHelper.accessor("zorksees", {
     header: () => "riword",
 
     cell: (cell) => {
@@ -184,7 +184,7 @@ const searchAddress = (address: string) => {
   if (address === undefined) return null;
 
   return glori_data.filter((item) => {
-    return item.recipient_address.toLowerCase() === address.toLowerCase();
+    return item.Address.toLowerCase() === address.toLowerCase();
   });
 };
 
@@ -294,8 +294,11 @@ const GloriLyst = () => {
           <KengButton type="epok2" className="flex-1" />
         </div>
 
-        <h1 className="absolute left-1/2 top-[35%] translate-x-[-50%] text-center font-ScribbleChild text-[4.5dvw] leading-none tracking-wider text-keng-text lg:text-5xl lg:leading-none">
+        <h1 className="absolute left-1/2 top-[34%] translate-x-[-50%] text-center font-ScribbleChild text-[4.5dvw] leading-none tracking-wider text-keng-text lg:text-5xl lg:leading-none">
           glori lyst epok 1
+        </h1>
+        <h1 className="absolute left-1/2 top-[37%] translate-x-[-50%] text-center font-ScribbleChild text-[4.5dvw] leading-none tracking-wider text-red-800 lg:text-xl lg:leading-none">
+          epok 2 in progrez
         </h1>
 
         <div className="absolute left-1/2 top-[39.5%] w-[77%] translate-x-[-52%] ">

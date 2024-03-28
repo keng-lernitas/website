@@ -59,27 +59,26 @@ const Footer = ({ className }: FooterProps) => {
   return (
     <div className={cn("", className)}>
       <div className="grid grid-cols-4">
-        <div className="flex items-center justify-center gap-x-[5%]">
-          <a
-            href="https://twitter.com/KengLernitas"
-            target="_blank"
-            className="transition hover:brightness-50"
-          >
-            <Twitter className="size-5 text-neutral-200" />
-          </a>
-          <a
-            href="https://t.me/Keng_Lernitas"
-            target="_blank"
-            className="transition hover:brightness-50"
-          >
-            <Telegram className="size-5 text-neutral-200" />
-          </a>
-        </div>
-
-        <div className="col-span-2 flex items-center justify-center">
+        <div className="col-span-2 col-start-2 flex flex-col items-center justify-center space-y-[1%]">
           <p className="font-MonaSans font-medium text-neutral-200">
             info@kenglernitas.wtf
           </p>
+          <div className="flex items-center justify-center gap-x-[20%]">
+            {/* <a
+              href="https://twitter.com/KengLernitas"
+              target="_blank"
+              className="transition hover:brightness-50"
+            >
+              <Twitter className="size-5 text-neutral-200" />
+            </a> */}
+            <a
+              href="https://t.me/Keng_Lernitas"
+              target="_blank"
+              className="transition hover:brightness-50"
+            >
+              <Telegram className="size-5 text-neutral-200" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
