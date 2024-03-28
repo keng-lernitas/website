@@ -26,14 +26,24 @@ const Home = () => {
           className=" pointer-events-none z-0 ml-[-6%] mt-[28%] aspect-[4235/6493] w-full scale-[135%] transform-gpu select-none"
         />
 
-        <a
-          href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="mb-[2%] mt-[30%] block text-center font-ScribbleChild text-[1.7dvw] text-keng-red transition hover:text-red-500 lg:text-base"
-        >
-          CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
-        </a>
+        <div className="mb-[2%] mt-[30%] space-y-[1%] text-center font-ScribbleChild text-[1.8dvw]  lg:text-base">
+          <a
+            href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="block  text-keng-red transition hover:text-red-500 "
+          >
+            Lernitas CA - 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
+          </a>
+          <a
+            href="https://solscan.io/token/9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="block  text-keng-red transition hover:text-red-500 "
+          >
+            Zorksees CA - 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
+          </a>
+        </div>
       </div>
     </div>
   );
