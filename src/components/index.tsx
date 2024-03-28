@@ -15,5 +15,6 @@ export { LernitasQuotes } from "./LernitasQuotes";
 export { ZorkseesQuotes } from "./ZorkseesQuotes";
 export { EpokCountdown } from "./EpokCountdown";
 export { Footer } from "./Footer";
+export { ContractAddresses } from "./ContractAddresses";
 
 export { Slider } from "./Slider";

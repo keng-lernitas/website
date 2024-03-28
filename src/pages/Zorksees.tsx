@@ -1,7 +1,9 @@
 import { useState } from "react";
 import {
+  ContractAddresses,
   ContractModal,
   EpokCountdown,
+  Footer,
   Header,
   KengButton,
 } from "../components";
@@ -76,6 +78,12 @@ const Zorksees = () => {
             className="absolute left-[21%] top-[62%] w-[25%] "
             onClick={handleSeelClicked}
           /> */}
+
+          <div className="absolute space-y-[5%] pb-[4%] pt-[8%]">
+            <ContractAddresses className="" />
+
+            <Footer className="" />
+          </div>
         </div>
       </div>
     </>

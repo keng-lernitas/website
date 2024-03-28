@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Header, KengButton } from "../components";
+import { ContractAddresses, Footer, Header, KengButton } from "../components";
 import { createColumnHelper } from "@tanstack/react-table";
 
 import glori_data from "../static/glori_lyst.json";
@@ -337,6 +337,12 @@ const GloriLyst = () => {
             </div>
           </div>
           <Table data={table_data} columns={columns} />
+        </div>
+
+        <div className="absolute space-y-[5%] pb-[4%] pt-[8%]">
+          <ContractAddresses className="" />
+
+          <Footer className="" />
         </div>
       </div>
     </div>

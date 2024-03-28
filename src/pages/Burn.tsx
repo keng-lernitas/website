@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import {
+  ContractAddresses,
   ContractModal,
   EpokCountdown,
+  Footer,
   Header,
   KengButton,
 } from "../components";
@@ -62,23 +64,10 @@ const Burn = () => {
             onClick={handleSeelClicked}
           />
 
-          <div className="absolute mt-[5%] w-full space-y-[1%] pb-[1%] text-center font-ScribbleChild text-[1.8dvw]  lg:text-base">
-            <a
-              href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="block  text-keng-red transition hover:text-red-500 "
-            >
-              Lernitas CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
-            </a>
-            <a
-              href="https://solscan.io/token/9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="block  text-keng-red transition hover:text-red-500 "
-            >
-              Zorksees CA: 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
-            </a>
+          <div className="absolute space-y-[5%] pb-[4%] pt-[12%]">
+            <ContractAddresses className="" />
+
+            <Footer className="" />
           </div>
         </div>
       </div>
