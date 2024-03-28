@@ -13,5 +13,7 @@ export { ZorkseesModal } from "./ZorkseesModal";
 export { ZorkseesContent } from "./ZorkseesContent";
 export { LernitasQuotes } from "./LernitasQuotes";
 export { ZorkseesQuotes } from "./ZorkseesQuotes";
+export { EpokCountdown } from "./EpokCountdown";
+export { Footer } from "./Footer";
 
 export { Slider } from "./Slider";

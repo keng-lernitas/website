@@ -1,5 +1,6 @@
 import React from "react";
 import { Header, KengButton } from "../components";
+import { Footer } from "../components/Footer";
 
 const Home = () => {
   const handleBuyClicked = () => {
@@ -35,15 +36,29 @@ const Home = () => {
           >
             Lernitas CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
           </a>
-          <a
-            href="https://solscan.io/token/9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="block  text-keng-red transition hover:text-red-500 "
-          >
-            Zorksees CA: 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
-          </a>
+
+          <div className="flex items-center justify-center gap-x-[1%]">
+            <a
+              href="https://solscan.io/token/9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="  text-keng-red transition hover:text-red-500 "
+            >
+              Zorksees CA: 9kq1VuGCCKeTgtRmzUTjLVi6LpmBD38im2hPRaqusPkE
+            </a>
+
+            <a
+              href="https://www.dextools.io/app/en/solana/pair-explorer/D3CiqHjv8hugCpRn9J4tYouRV14QwHuKJkxhr9Zjr5Wo?t=1711637241090"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="w-[10%]  text-keng-red transition hover:brightness-50 "
+            >
+              <img src="/images/DEXTools.png" />
+            </a>
+          </div>
         </div>
+
+        {/* <Footer className="my-[2%]" /> */}
       </div>
     </div>
   );
