@@ -4,6 +4,10 @@ import { KengButton } from "..";
 
 const LINKS = [
   {
+    name: "zorksees",
+    url: "/zorksees",
+  },
+  {
     name: "telegram",
     url: "https://t.me/Keng_Lernitas",
   },
@@ -48,7 +52,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="absolute left-[5%] mt-[5%]  ">
+      <div className="absolute left-[5%] mt-[1%]  ">
         <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-none lg:text-[1.65rem] lg:leading-none">
           {LINKS.map((link, i) => (
             <React.Fragment key={link.name}>
