@@ -56,7 +56,7 @@ const Header = () => {
         <div className="flex flex-col font-ScribbleChild text-[2.6dvw] leading-none lg:text-[1.65rem] lg:leading-none">
           {LINKS.map((link, i) => (
             <React.Fragment key={link.name}>
-              {link.name === "glori lyst" ? (
+              {link.url.startsWith("/") ? (
                 <Link
                   to={link.url}
                   className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
