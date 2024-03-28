@@ -18,7 +18,7 @@ const Home = () => {
         {/* website graphic */}
         <KengButton
           type="info"
-          className="absolute left-1/2 top-[53.5%]  z-50 w-[20%] -translate-x-1/2"
+          className="absolute left-1/2 top-[50.5%]  z-50 w-[20%] -translate-x-1/2"
           onClick={handleBuyClicked}
         />
 
