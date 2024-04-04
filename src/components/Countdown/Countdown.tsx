@@ -48,7 +48,7 @@ const GetInitialLaunchDate = () => {
   if (difference < 0) {
     // add three seconds to the current time
     var t = new Date();
-    t.setSeconds(t.getSeconds() + 4);
+    t.setSeconds(t.getSeconds() + 0);
 
     return t.toISOString();
   }
