@@ -4,6 +4,10 @@ import { KengButton } from "..";
 
 const LINKS = [
   {
+    name: "batel",
+    url: "/batel",
+  },
+  {
     name: "zorksees",
     url: "/zorksees",
   },
@@ -55,7 +59,7 @@ const Header = () => {
               {link.url.startsWith("/") ? (
                 <Link
                   to={link.url}
-                  className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
+                  className="mt-[20%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
                 >
                   <img
                     src={`/images/dots/dot-${(i + 1) % 4 || 4}.png`}
@@ -67,7 +71,7 @@ const Header = () => {
                 <a
                   key={link.name}
                   href={link.url}
-                  className="mt-[22%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
+                  className="mt-[20%] flex select-none items-center gap-x-[10%] text-keng-red transition hover:text-red-500"
                   target={link.name === "memes" ? "_self" : "_blank"}
                   rel="noreferrer"
                 >

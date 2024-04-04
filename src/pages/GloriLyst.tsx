@@ -298,7 +298,7 @@ const GloriLyst = () => {
           glori lyst epok 1
         </h1>
         <h1 className="absolute left-1/2 top-[37%] translate-x-[-50%] text-center font-ScribbleChild text-[4.5dvw] leading-none tracking-wider text-red-800 lg:text-xl lg:leading-none">
-          epok 2 in progrez
+          epok 2 haz endud
         </h1>
 
         <div className="absolute left-1/2 top-[39.5%] w-[77%] translate-x-[-52%] ">
