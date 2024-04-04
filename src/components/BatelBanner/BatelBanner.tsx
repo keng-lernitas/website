@@ -39,7 +39,9 @@ const BatelBanner = () => {
           </span>
           3
         </h1>
-
+        <p className="font-ScribbleChild text-[1.4dvw] leading-none text-keng-gold-dark lg:text-sm lg:leading-none">
+          comin sewn
+        </p>
         <Countdown />
       </div>
 
