@@ -94,7 +94,7 @@ const LernitasContent = ({
     }
   }, [result]);
 
-  const handleBurnTokens = () => {
+  const handleSignContract = () => {
     if (tokenBalance === 0) {
       return;
     }
@@ -113,7 +113,7 @@ const LernitasContent = ({
     //   },
     // );
 
-    alert("Not implemented yet");
+    alert("da batel haz nt sturted yit!");
   };
 
   return (
@@ -265,7 +265,7 @@ const LernitasContent = ({
             <button
               type="button"
               className="inline-flex w-full justify-center rounded-md border-t border-t-red-400 bg-red-600 px-3 py-2 text-sm font-semibold text-red-50 shadow  transition hover:bg-red-700  sm:w-auto"
-              onClick={handleBurnTokens}
+              onClick={handleSignContract}
               disabled={contractState !== "idle" || isPending}
             >
               {isPending ? "Signing Contract..." : "Sign Contract"}
