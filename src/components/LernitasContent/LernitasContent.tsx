@@ -13,9 +13,11 @@ import { WAGMICONFIG } from "../../main";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
-  ExclamationTriangleIcon,
   ShieldExclamationIcon,
 } from "@heroicons/react/24/solid";
+
+import { BeakerIcon, ExclamationCircleIcon } from "@heroicons/react/16/solid";
+
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton, Slider } from "..";
@@ -212,15 +214,22 @@ const LernitasContent = ({
                 // className={cn("w-[60%]")}
               />
             </div>
-            {/* <div className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
-              <p className="font-bold">CAUTION:</p>
-
-              <p className="mt-2">
-                By signing this contract, you are agreeing to burn 90% of your
-                2192 tokens ({walletPercentageDisplay}).
+            <div className="mt-4 rounded-2xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
+              <p className="flex items-center gap-x-1 font-semibold">
+                <ExclamationCircleIcon className="size-5" />
+                Information
               </p>
 
-              <p className="mt-2">
+              <p className="mt-1 text-sm text-amber-100/90">
+                {/* By signing this contract, you are agreeing to burn 90% of your
+                2192 tokens ({walletPercentageDisplay}).  */}
+                Lernitas needs your help to win this battle.
+                <br />
+                Put fourth as many soldiers as you can to guarantee victory and
+                be rewarded with a great and mysterious prize.
+              </p>
+
+              {/* <p className="mt-2">
                 More details will be shared on the official keng lernitas
                 Twitter account:{" "}
                 <a
@@ -231,8 +240,8 @@ const LernitasContent = ({
                 >
                   @KengLernitas
                 </a>
-              </p>
-            </div> */}
+              </p> */}
+            </div>
           </div>
         )}
 

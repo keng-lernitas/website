@@ -1,19 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 
 import { sportansVisible } from "../../atoms/sportans";
 import { cn } from "../../lib/utils";
 
-const Sportans = () => {
+const Sportans = ({
+  visibleShields,
+}: {
+  visibleShields: number | null | undefined;
+}) => {
   const [visible, setVisible] = useRecoilState(sportansVisible);
 
   const BASE_SIZE = 13;
   const LINES = 4;
 
-  const handleClick = () => {
+  const handleClick = (enabled: Boolean) => {
     // play /audio/sportin_voice_1
     // play /audio/sportin_voice_2
     // play /audio/sportin_voice_3
+
+    if (!enabled) return;
 
     let audios = [
       "/audio/sportin_voice_1.mp3",
@@ -27,23 +33,40 @@ const Sportans = () => {
     audio.play();
   };
 
+  const previous = [0, 13, 25, 36];
+
   return (
     <div className="absolute left-[52%] top-[29%] w-[80%] -translate-x-1/2 ">
+      {/* input slider */}
+
       <div className="flex flex-col space-y-[1%]">
         {[...Array(LINES)].map((_, i) => (
           <div key={i} className="flex justify-center gap-x-[1%]">
             {[...Array(BASE_SIZE - i)].map((_, j) => (
               <div
                 key={j}
-                className="group relative z-50 aspect-square w-[6.5%] cursor-pointer rounded-full"
-                onClick={handleClick}
+                className={cn(
+                  visibleShields && previous[i] + (j + 1) <= visibleShields
+                    ? ""
+                    : "opacity-50 brightness-50 grayscale",
+                  "group relative z-50 aspect-square w-[6.5%] cursor-pointer rounded-full transition ",
+                )}
+                onClick={() =>
+                  handleClick(previous[i] + (j + 1) <= (visibleShields ?? 0))
+                }
               >
                 <img
                   src="/images/sportan_head.png"
                   className={cn(
-                    visible
+                    visible &&
+                      visibleShields &&
+                      previous[i] + (j + 1) <= visibleShields
                       ? "left-[17%] top-[-30%] scale-100"
-                      : "left-0 top-0 scale-50 group-hover:left-[17%] group-hover:top-[-30%] group-hover:scale-100",
+                      : "left-0 top-0 scale-50 group-hover:left-[17%] ",
+
+                    visibleShields && previous[i] + (j + 1) <= visibleShields
+                      ? "group-hover:top-[-30%] group-hover:scale-100"
+                      : "",
 
                     "absolute  h-full w-full select-none transition-all  [filter:_drop-shadow(0.15rem_0.25rem_0px_#5b4328)] md:[filter:_drop-shadow(0.3rem_0.5rem_0px_#5b4328)]",
                   )}
@@ -52,9 +75,14 @@ const Sportans = () => {
                 <img
                   src="/images/shield_sm.png"
                   className={cn(
-                    visible
+                    visible &&
+                      visibleShields &&
+                      previous[i] + (j + 1) <= visibleShields
                       ? "translate-y-[5%]"
-                      : "group-hover:translate-y-[5%]",
+                      : "",
+                    visibleShields && previous[i] + (j + 1) <= visibleShields
+                      ? "group-hover:translate-y-[5%]"
+                      : "",
 
                     "relative size-full select-none transition-all [filter:_drop-shadow(0.15rem_0.15rem_0px_#5b4328)] md:[filter:_drop-shadow(0.3rem_0.3rem_0px_#5b4328)] ",
                   )}

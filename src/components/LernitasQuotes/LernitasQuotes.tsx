@@ -40,7 +40,7 @@ const LernitasQuotes = () => {
       if (QUOTE_LIST[currentQuote + 1] === "TU BATEL!!!") {
         setVisible(false);
       }
-    }, 750);
+    }, 1500);
 
     if (currentTimeout) {
       clearTimeout(currentTimeout);

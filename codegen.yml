@@ -1,0 +1,16 @@
+schema: http://localhost:4000/graphql
+documents: ./graphql/*.graphql
+generates:
+  ./src/api/graphql.ts:
+    plugins:
+      - { add: { content: "import { GLError } from './error';" } }
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      addInfiniteQuery: true
+      errorType: GLError
+      fetcher:
+        func: "./fetcher#useFetchData"
+        isReactHook: true
+      reactQueryVersion: 5
