@@ -40,7 +40,10 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
 
             <div className="flex-1">lernitas:</div>
             <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
-              {lernitasTVL?.formattedTVL}
+              {lernitasTVL?.formattedTVL}{" "}
+              <span className="text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
+                TVL
+              </span>
             </div>
           </div>
 
@@ -90,7 +93,10 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
             <div className="flex-1">zorksees:</div>
 
             <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
-              {zorkseesTVL?.formattedTVL}
+              {zorkseesTVL?.formattedTVL}{" "}
+              <span className="text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
+                TVL
+              </span>
             </div>
           </div>
 
