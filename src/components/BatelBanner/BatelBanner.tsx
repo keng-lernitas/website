@@ -32,7 +32,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
 
       <div className="flex flex-1 flex-col space-y-[4.5%] font-ScribbleChild text-keng-gold-dark">
         <a
-          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF"
+          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF#tokentxns"
           target="_blank"
           className="block transition hover:opacity-80"
         >
@@ -88,7 +88,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
           </div>
         </a>
         <a
-          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF"
+          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF#tokentxns"
           target="_blank"
           className="block transition hover:opacity-80"
         >
