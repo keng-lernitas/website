@@ -38,6 +38,15 @@ const ContractAddresses = ({ className }: { className: string }) => {
           >
             <img src="/images/DexScreener.png" />
           </a>
+
+          <a
+            href="https://www.coingecko.com/en/coins/lernitas"
+            target="_blank"
+            rel="noreferrer noopener"
+            className=" w-[25%] text-keng-red transition hover:brightness-50 "
+          >
+            <img src="/images/coingecko_logo.png" />
+          </a>
         </div>
         <a
           href="https://twitter.com/KengLernitas"
@@ -75,6 +84,15 @@ const ContractAddresses = ({ className }: { className: string }) => {
             className="-mt-[0.85%] w-[30%] text-keng-red transition hover:brightness-50 "
           >
             <img src="/images/DexScreener.png" />
+          </a>
+
+          <a
+            href="https://www.coingecko.com/en/coins/zorksees"
+            target="_blank"
+            rel="noreferrer noopener"
+            className=" w-[25%] text-keng-red transition hover:brightness-50 "
+          >
+            <img src="/images/coingecko_logo.png" />
           </a>
         </div>
         <a

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   BatelBanner,
+  ContractAddresses,
+  Footer,
   Header,
   KengButton,
   LernitasModal,
@@ -85,6 +87,23 @@ const Batel = () => {
           <LernitasQuotes />
 
           <ZorkseesQuotes />
+          <div className="absolute space-y-[5%] pb-[4%] pt-[25%]">
+            <div>
+              <div className=" mb-[3%] text-center">
+                <a
+                  href="https://www.coingecko.com/en/api"
+                  target="_blank"
+                  className=" mx-auto text-center font-medium text-keng-red transition hover:opacity-80"
+                >
+                  Data provided by CoinGecko
+                </a>
+              </div>
+
+              <ContractAddresses className="" />
+            </div>
+
+            <Footer className="" />
+          </div>
         </div>
       </div>
     </>
