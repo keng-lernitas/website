@@ -2,21 +2,17 @@ import React, { useEffect, useState } from "react";
 
 import {
   useAccount,
-  useBalance,
   useWaitForTransactionReceipt,
   useWriteContract,
-  useSendTransaction,
   useReadContract,
 } from "wagmi";
 
 import BASE_Lernitas_Proxy_ABI from "../../static/BASE-Lernitas-Proxy-ABI.json";
 
-import { FireIcon } from "@heroicons/react/24/outline";
 import { WAGMICONFIG } from "../../main";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
-  ExclamationTriangleIcon,
   ShieldExclamationIcon,
 } from "@heroicons/react/24/solid";
 import { Dialog } from "@headlessui/react";
@@ -100,9 +96,9 @@ const ZorkseesContent = ({
   }, [result]);
 
   const handleSignContract = () => {
-    // if (tokenBalance === 0) {
-    //   return;
-    // }
+    if (tokenBalance === 0) {
+      return;
+    }
 
     writeContract(
       {
