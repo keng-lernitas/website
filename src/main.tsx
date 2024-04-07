@@ -10,8 +10,9 @@ import {
   Theme,
 } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { optimism } from "wagmi/chains";
+import { optimism, base } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "sonner";
 
 import merge from "lodash.merge";
@@ -20,12 +21,19 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { RecoilRoot } from "recoil";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 export const WAGMICONFIG = getDefaultConfig({
   appName: "keng lernitas",
   projectId: "1",
-  chains: [optimism],
+  chains: [base],
   ssr: false, // If your dApp uses server side rendering (SSR)
 });
 
@@ -43,6 +51,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <RecoilRoot>
             <Toaster />
             <AppRoutes />
+
+            <ReactQueryDevtools initialIsOpen={false} position="right" />
           </RecoilRoot>
         </RainbowKitProvider>
       </QueryClientProvider>

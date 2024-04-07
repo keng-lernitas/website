@@ -1,0 +1,8 @@
+query lernitasTokenData {
+  lernitasTokenData {
+    visibleShields
+    maxTVL
+    TVL
+    formattedTVL
+  }
+}

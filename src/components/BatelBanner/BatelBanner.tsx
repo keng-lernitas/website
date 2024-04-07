@@ -3,45 +3,30 @@ import { Countdown } from "..";
 import { useReadContract } from "wagmi";
 import CONTRACT_ABI from "../../static/2192-abi.json";
 
-const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
-const LERNITAS = ""; // this will be the lernitas deposit wallet
+const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"; // this is the 2192 Token Contract Address
+const CAZORKSEES = ""; // this is the Zorksees Token Contract Address
+const LERNITAS = "0xd64813e230b945e501aa1969d21fb2072cb95930"; // this will be the lernitas deposit wallet
 
-interface ContractReadResult {
-  data: bigint | undefined; // Assuming your data should be a string or null
-  isLoading: boolean;
+interface BatelBannerType {
+  lernitasTVL?: {
+    formattedTVL: string | null | undefined;
+    tvl: number | null | undefined;
+    maxTVL: number | null | undefined;
+  };
+  zorkseesTVL?: {
+    formattedTVL: string | null | undefined;
+    tvl: number | null | undefined;
+    maxTVL: number | null | undefined;
+  };
 }
 
-const BatelBanner = () => {
-  // const { data: balanceBigInt, isLoading } = useReadContract({
-  //   address: CA2192,
-  //   abi: CONTRACT_ABI,
-  //   functionName: "balanceOf",
-  //   args: [LERNITAS],
-  //   query: {
-  //     enabled: true,
-  //   },
-  // }) as ContractReadResult;
-
-  let balanceBigInt = 0n;
-
-  const tokenBalance =
-    balanceBigInt !== undefined
-      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 15))) / 1000
-      : 0;
-
+const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
   return (
     <div className="absolute left-[57%] top-[7.25%] flex w-[63%] -translate-x-1/2 items-center justify-between gap-x-[1%] p-[1%]">
       <div className="flex-center flex flex-1 flex-col items-center space-y-[3%]">
         <h1 className="font-ScribbleChild text-[3.5vw] leading-none  text-keng-gold-dark lg:text-4xl lg:leading-none">
-          batel 1{" "}
-          <span className="-ml-[9%] font-ScribbleHand text-[3.5dvw] leading-none lg:text-5xl lg:leading-none">
-            /
-          </span>
-          3
+          batel fur glori
         </h1>
-        <p className="font-ScribbleChild text-[1.4dvw] leading-none text-keng-gold-dark lg:text-sm lg:leading-none">
-          comin sewn
-        </p>
         <Countdown />
       </div>
 
@@ -54,8 +39,8 @@ const BatelBanner = () => {
             />
 
             <div className="flex-1">lernitas:</div>
-            <div className="text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
-              {tokenBalance}
+            <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
+              {lernitasTVL?.formattedTVL}
             </div>
           </div>
 
@@ -65,7 +50,13 @@ const BatelBanner = () => {
                 viewBox="0 0 984 29"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-[0%] overflow-visible stroke-2 md:stroke-[3] lg:stroke-[4]"
+                className="overflow-visible stroke-2 md:stroke-[3] lg:stroke-[4]"
+                style={{
+                  width:
+                    ((lernitasTVL?.tvl ?? 0) / (lernitasTVL?.maxTVL ?? 1)) *
+                      100 +
+                    "%",
+                }}
               >
                 <path
                   d="M9.87329 17.3905C16.7679 17.3905 22.5452 19.71 29.2027 19.71C39.1108 19.71 49.0188 19.71 58.9269 19.71C77.9413 19.71 96.9557 19.71 115.97 19.71C128.331 19.71 140.725 19.973 153.082 19.71C164.635 19.4642 176.017 18.1637 187.661 18.1637C196.769 18.1637 206.259 17.3905 215.538 17.3905C220.157 17.3905 224.443 16.6173 229.025 16.6173C233.038 16.6173 238.589 16.8532 242.427 15.6723C246.934 14.2857 252.129 16.2244 256.516 14.4696C259.407 13.3131 264.215 14.2978 267.341 14.2978C274.815 14.2978 282.289 14.2978 289.763 14.2978C309.98 14.2978 330.197 14.2978 350.414 14.2978C370.912 14.2978 391.515 13.5246 411.924 13.5246C431.328 13.5246 450.875 11.9783 470.256 11.9783C482.798 11.9783 495.337 11.2051 507.755 11.2051C521.297 11.2051 534.876 11.9783 548.347 11.9783C560.345 11.9783 572.344 11.9783 584.342 11.9783C597.249 11.9783 610.031 13.5246 623.001 13.5246C647.013 13.5246 671.209 14.2978 695.336 14.2978C705.573 14.2978 715.655 13.1221 725.661 12.7515C737.155 12.3258 748.739 12.7515 760.24 12.7515C778.951 12.7515 797.683 13.5246 816.295 13.5246C835.235 13.5246 853.919 11.9783 872.736 11.9783C880.93 11.9783 890.576 11.7978 898.638 10.0453C905.992 8.44656 914.857 9.65875 922.391 9.65875C939.602 9.65875 956.812 9.65875 974.022 9.65875"
@@ -98,8 +89,8 @@ const BatelBanner = () => {
 
             <div className="flex-1">zorksees:</div>
 
-            <div className="text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
-              {tokenBalance}
+            <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
+              {zorkseesTVL?.formattedTVL}
             </div>
           </div>
 
@@ -109,7 +100,13 @@ const BatelBanner = () => {
                 viewBox="0 0 1009 33"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-[0%] overflow-visible stroke-2 md:stroke-[3] lg:stroke-[4]"
+                className="overflow-visible stroke-2 md:stroke-[3] lg:stroke-[4]"
+                style={{
+                  width:
+                    ((zorkseesTVL?.tvl ?? 0) / (zorkseesTVL?.maxTVL ?? 1)) *
+                      100 +
+                    "%",
+                }}
               >
                 <path
                   d="M9.44702 22.4411C24.6534 22.4411 40.6715 22.4411 55.7508 22.4411C62.2344 22.4411 68.4345 21.515 74.7354 21.515C83.0708 21.515 90.7675 23.3672 99.225 23.3672C120.07 23.3672 141.891 24.9771 162.301 21.052C183.43 16.9887 207.191 19.6629 228.721 19.6629C255.166 19.6629 281.611 19.6629 308.055 19.6629C323.491 19.6629 339.485 20.7952 354.874 19.6114C367.552 18.6362 380.804 16.8847 393.357 16.8847C406.498 16.8847 420.469 14.1061 433.59 16.1644C439.561 17.101 445.554 16.8847 451.597 16.8847C456.291 16.8847 460.484 18.7368 465.077 18.7368C488.16 18.7368 510.956 19.6629 534.069 19.6629C554.78 19.6629 575.176 15.0325 595.653 15.0325C622.817 15.0325 650.104 14.6 677.354 15.0325C688.197 15.2046 699.095 15.9586 710.024 15.9586C715.906 15.9586 721.788 15.9586 727.671 15.9586C733.327 15.9586 738.375 14.1064 744.031 14.1064C753.19 14.1064 761.88 12.2543 771.093 12.2543C782.224 12.2543 793.354 12.2543 804.484 12.2543C812.487 12.2543 820.392 14.1064 828.304 14.1064C838.886 14.1064 849.467 14.1064 860.048 14.1064C869.772 14.1064 879.496 14.1064 889.22 14.1064C893.078 14.1064 896.937 14.1064 900.796 14.1064C904.768 14.1064 908.624 12.2543 912.577 12.2543C920.334 12.2543 927.471 10.4021 935.523 10.4021C942.064 10.4021 949.439 9.47605 956.36 9.47605C963.527 9.47605 970.756 9.20062 977.917 9.47605C981.481 9.61312 985.292 11.4293 988.773 12.2028C991.998 12.9196 996.095 12.2543 999.423 12.2543"

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BatelBanner,
+  ContractAddresses,
+  Footer,
   Header,
   KengButton,
   LernitasModal,
@@ -13,12 +15,19 @@ import {
 import { cn } from "../lib/utils";
 import { useRecoilState } from "recoil";
 import { sportansVisible } from "../atoms/sportans";
+import {
+  useLernitasTokenDataQuery,
+  useZorkseesTokenDataQuery,
+} from "../api/graphql";
 
 const Batel = () => {
   const [visible, setVisible] = useRecoilState(sportansVisible);
 
   const [lernitasModalOpen, setLernitasModalOpen] = useState(false);
   const [zorkseesModalOpen, setZorkseesModalOpen] = useState(false);
+
+  const { data: lernitasData } = useLernitasTokenDataQuery();
+  const { data: zorkseesData } = useZorkseesTokenDataQuery();
 
   return (
     <>
@@ -54,24 +63,47 @@ const Batel = () => {
             onClick={() => setZorkseesModalOpen(true)}
           />
 
-          <BatelBanner />
+          <BatelBanner
+            lernitasTVL={{
+              formattedTVL: lernitasData?.lernitasTokenData?.formattedTVL,
+              tvl: lernitasData?.lernitasTokenData?.TVL,
+              maxTVL: lernitasData?.lernitasTokenData?.maxTVL,
+            }}
+            zorkseesTVL={{
+              formattedTVL: zorkseesData?.zorkseesTokenData?.formattedTVL,
+              tvl: zorkseesData?.zorkseesTokenData?.TVL,
+              maxTVL: zorkseesData?.zorkseesTokenData?.maxTVL,
+            }}
+          />
 
-          <Sportans />
+          <Sportans
+            visibleShields={lernitasData?.lernitasTokenData?.visibleShields}
+          />
 
-          <Perzans />
+          <Perzans
+            visibleShields={zorkseesData?.zorkseesTokenData?.visibleShields}
+          />
 
           <LernitasQuotes />
 
           <ZorkseesQuotes />
+          <div className="absolute space-y-[5%] pb-[4%] pt-[25%]">
+            <div>
+              <div className=" mb-[3%] text-center">
+                <a
+                  href="https://www.coingecko.com/en/api"
+                  target="_blank"
+                  className=" mx-auto text-center text-xs font-medium text-keng-red transition hover:opacity-80 sm:text-sm md:text-base"
+                >
+                  Data provided by CoinGecko
+                </a>
+              </div>
 
-          {/* <a
-          href="https://optimistic.etherscan.io/address/0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="mb-[2%] mt-[30%] block text-center font-ScribbleChild text-[1.7dvw] text-keng-red transition hover:text-red-500 lg:text-base"
-        >
-          CA: 0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D
-        </a> */}
+              <ContractAddresses className="" />
+            </div>
+
+            <Footer className="" />
+          </div>
         </div>
       </div>
     </>

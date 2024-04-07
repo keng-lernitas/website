@@ -22,7 +22,7 @@ const ZorkseesQuotes = () => {
 
     const timeout = setTimeout(() => {
       setQuoteVisible(false);
-    }, 750);
+    }, 1500);
 
     if (currentTimeout) {
       clearTimeout(currentTimeout);

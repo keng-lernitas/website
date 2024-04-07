@@ -1,0 +1,8 @@
+query zorkseesTokenData {
+  zorkseesTokenData {
+    visibleShields
+    maxTVL
+    TVL
+    formattedTVL
+  }
+}
