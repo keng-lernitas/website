@@ -31,7 +31,11 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
       </div>
 
       <div className="flex flex-1 flex-col space-y-[4.5%] font-ScribbleChild text-keng-gold-dark">
-        <div className="">
+        <a
+          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF"
+          target="_blank"
+          className="block transition hover:opacity-80"
+        >
           <div className="flex items-center justify-between text-[1.9dvw] leading-none lg:text-xl lg:leading-none">
             <img
               src="/images/lernitas-icon.png"
@@ -39,7 +43,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
             />
 
             <div className="flex-1">lernitas:</div>
-            <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
+            <div className="font-ScribbleHand text-[2.2dvw] font-semibold leading-none tracking-wider text-keng-gold [text-shadow:_#450a0a_1px_1px_2px] lg:text-2xl lg:leading-none">
               {lernitasTVL?.formattedTVL}{" "}
               <span className="-ml-[3%] text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
                 TVL
@@ -82,8 +86,12 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
               />
             </svg>
           </div>
-        </div>
-        <div className="">
+        </a>
+        <a
+          href="https://basescan.org/address/0xf86358b208A177050eAEe6b5552cF24E49f11cfF"
+          target="_blank"
+          className="block transition hover:opacity-80"
+        >
           <div className="flex items-center justify-between text-[1.9dvw] leading-none lg:text-xl lg:leading-none">
             <img
               src="/images/zorksees_head.png"
@@ -92,7 +100,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
 
             <div className="flex-1">zorksees:</div>
 
-            <div className="tracking-wide text-keng-gold [text-shadow:_#450a0a_1px_1px_2px]">
+            <div className="font-ScribbleHand text-[2.2dvw] font-semibold leading-none tracking-wider text-keng-gold [text-shadow:_#450a0a_1px_1px_2px] lg:text-2xl lg:leading-none">
               {zorkseesTVL?.formattedTVL}{" "}
               <span className="-ml-[3%] text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
                 TVL
@@ -135,7 +143,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
               />
             </svg>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );
