@@ -26,8 +26,18 @@ const Batel = () => {
   const [lernitasModalOpen, setLernitasModalOpen] = useState(false);
   const [zorkseesModalOpen, setZorkseesModalOpen] = useState(false);
 
-  const { data: lernitasData } = useLernitasTokenDataQuery();
-  const { data: zorkseesData } = useZorkseesTokenDataQuery();
+  const { data: lernitasData } = useLernitasTokenDataQuery(
+    {},
+    {
+      refetchInterval: 20000,
+    },
+  );
+  const { data: zorkseesData } = useZorkseesTokenDataQuery(
+    {},
+    {
+      refetchInterval: 20000,
+    },
+  );
 
   return (
     <>
