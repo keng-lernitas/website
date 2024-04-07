@@ -6,9 +6,10 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
   useSendTransaction,
+  useReadContract,
 } from "wagmi";
 
-import BASE_Lernitas_Proxy_API from "../../static/BASE-Lernitas-Proxy-ABI.json";
+import BASE_Lernitas_Proxy_ABI from "../../static/BASE-Lernitas-Proxy-ABI.json";
 
 import { FireIcon } from "@heroicons/react/24/outline";
 import { WAGMICONFIG } from "../../main";
@@ -21,8 +22,9 @@ import {
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton, Slider } from "..";
+import { ExclamationCircleIcon } from "@heroicons/react/16/solid";
 
-const BASE_LERNITAS_CA = "0xd75f5Bee37168F97552F843076adc2eA9A8A0935";
+const BASE_ZORKSEES_ABI = "0xA0690B7bF65967508bFCaa9A999Db44723553ba2";
 const DEPOSIT_ADDRESS = "0xf86358b208A177050eAEe6b5552cF24E49f11cfF";
 
 interface ContractReadResult {
@@ -52,10 +54,31 @@ const ZorkseesContent = ({
   const { address, isConnected } = useAccount();
   const [contractState, setContractState] = useState<ContractStateType>("idle");
 
-  const balance = useBalance({
-    address: "0x69ecf0debf76554c65a511d7c5bf3a4b0dc77562",
-    token: "0xd75f5bee37168f97552f843076adc2ea9a8a0935",
-  });
+  const { data: balanceBigInt, isLoading } = useReadContract({
+    address: BASE_ZORKSEES_ABI,
+    abi: BASE_Lernitas_Proxy_ABI,
+    functionName: "balanceOf",
+    args: [address],
+    query: {
+      enabled: isConnected,
+    },
+  }) as ContractReadResult;
+
+  const tokenBalance =
+    balanceBigInt !== undefined
+      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 1))) / 1000000
+      : 0;
+
+  const walletPercentageBigInt =
+    balanceBigInt !== undefined
+      ? calculatePercentage(balanceBigInt, walletPercentage)
+      : 0;
+
+  const walletPercentageDisplay =
+    walletPercentageBigInt !== undefined
+      ? Number(BigInt(walletPercentageBigInt) / BigInt(Math.pow(10, 1))) /
+        1000000
+      : 0;
 
   const {
     data: hash,
@@ -81,14 +104,15 @@ const ZorkseesContent = ({
     //   return;
     // }
 
-    console.log("yoyooy");
-
     writeContract(
       {
-        address: "0x8d2de8d2f73f1f4cab472ac9a881c9b123c79627",
-        abi: BASE_Lernitas_Proxy_API,
-        functionName: "transferTokens",
-        args: [DEPOSIT_ADDRESS, BASE_LERNITAS_CA, 1000n],
+        address: BASE_ZORKSEES_ABI,
+        abi: BASE_Lernitas_Proxy_ABI,
+        functionName: "transfer",
+        args: [
+          DEPOSIT_ADDRESS, // recipient_ (address)
+          walletPercentageBigInt, // amount_ (uint256)
+        ],
       },
       {
         onSuccess: () => {
@@ -148,7 +172,7 @@ const ZorkseesContent = ({
                     Zorksees
                   </p>
                   <p className=" text-neutral-200">
-                    {/* {isLoading ? "Loading Balance..." : <>{tokenBalance}</>} */}
+                    {isLoading ? "Loading Balance..." : <>{tokenBalance}</>}
                   </p>
                 </div>
               </div>
@@ -169,13 +193,13 @@ const ZorkseesContent = ({
                   <p className="text-sm font-medium text-neutral-300">
                     War Aid
                   </p>
-                  {/* <p className=" text-neutral-200">
+                  <p className=" text-neutral-200">
                     {isLoading ? (
                       "Loading Balance..."
                     ) : (
                       <>{walletPercentageDisplay}</>
                     )}
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -196,27 +220,20 @@ const ZorkseesContent = ({
                 // className={cn("w-[60%]")}
               />
             </div>
-            {/* <div className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
-              <p className="font-bold">CAUTION:</p>
 
-              <p className="mt-2">
-                By signing this contract, you are agreeing to burn 90% of your
-                2192 tokens ({walletPercentageDisplay}).
+            <div className="mt-4 rounded-2xl border border-amber-400/40 bg-amber-400/10 p-4 text-amber-100">
+              <p className="flex items-center gap-x-1 font-semibold">
+                <ExclamationCircleIcon className="size-5" />
+                Information
               </p>
 
-              <p className="mt-2">
-                More details will be shared on the official keng lernitas
-                Twitter account:{" "}
-                <a
-                  href="https://twitter.com/KengLernitas"
-                  className="text-blue-400 transition hover:text-blue-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @KengLernitas
-                </a>
+              <p className="mt-1 text-sm text-amber-100/90">
+                Zorksees needs your help to win this battle.
+                <br />
+                Put fourth as many soldiers as you can to guarantee victory and
+                be rewarded with a great and mysterious prize.
               </p>
-            </div> */}
+            </div>
           </div>
         )}
 

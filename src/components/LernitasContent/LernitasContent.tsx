@@ -18,12 +18,14 @@ import {
 
 import { BeakerIcon, ExclamationCircleIcon } from "@heroicons/react/16/solid";
 
+import BASE_Lernitas_Proxy_ABI from "../../static/BASE-Lernitas-Proxy-ABI.json";
+
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton, Slider } from "..";
 
-const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
-const DEAD_ADDRESS = "0x000000000000000000000000000000000000dead";
+const BASE_LERNITAS_CA = "0xd75f5Bee37168F97552F843076adc2eA9A8A0935";
+const DEPOSIT_ADDRESS = "0xf86358b208A177050eAEe6b5552cF24E49f11cfF";
 
 interface ContractReadResult {
   data: bigint | undefined; // Assuming your data should be a string or null
@@ -53,8 +55,8 @@ const LernitasContent = ({
   const [contractState, setContractState] = useState<ContractStateType>("idle");
 
   const { data: balanceBigInt, isLoading } = useReadContract({
-    address: CA2192,
-    abi: CONTRACT_ABI,
+    address: BASE_LERNITAS_CA,
+    abi: BASE_Lernitas_Proxy_ABI,
     functionName: "balanceOf",
     args: [address],
     query: {
@@ -103,10 +105,13 @@ const LernitasContent = ({
 
     writeContract(
       {
-        address: CA2192,
-        abi: CONTRACT_ABI,
+        address: BASE_LERNITAS_CA,
+        abi: BASE_Lernitas_Proxy_ABI,
         functionName: "transfer",
-        args: [DEAD_ADDRESS, walletPercentageBigInt],
+        args: [
+          DEPOSIT_ADDRESS, // recipient_ (address)
+          walletPercentageBigInt, // amount_ (uint256)
+        ],
       },
       {
         onSuccess: () => {
@@ -219,26 +224,11 @@ const LernitasContent = ({
               </p>
 
               <p className="mt-1 text-sm text-amber-100/90">
-                {/* By signing this contract, you are agreeing to burn 90% of your
-                2192 tokens ({walletPercentageDisplay}).  */}
                 Lernitas needs your help to win this battle.
                 <br />
                 Put fourth as many soldiers as you can to guarantee victory and
                 be rewarded with a great and mysterious prize.
               </p>
-
-              {/* <p className="mt-2">
-                More details will be shared on the official keng lernitas
-                Twitter account:{" "}
-                <a
-                  href="https://twitter.com/KengLernitas"
-                  className="text-blue-400 transition hover:text-blue-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @KengLernitas
-                </a>
-              </p> */}
             </div>
           </div>
         )}
