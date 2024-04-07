@@ -45,7 +45,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
             <div className="flex-1">lernitas:</div>
             <div className="font-ScribbleHand text-[2.2dvw] font-semibold leading-none tracking-wider text-keng-gold [text-shadow:_#450a0a_1px_1px_2px] lg:text-2xl lg:leading-none">
               {lernitasTVL?.formattedTVL}{" "}
-              <span className="-ml-[3%] text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
+              <span className="-ml-[3%] text-[1.7dvw] leading-none lg:text-lg lg:leading-none">
                 TVL
               </span>
             </div>
@@ -102,7 +102,7 @@ const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
 
             <div className="font-ScribbleHand text-[2.2dvw] font-semibold leading-none tracking-wider text-keng-gold [text-shadow:_#450a0a_1px_1px_2px] lg:text-2xl lg:leading-none">
               {zorkseesTVL?.formattedTVL}{" "}
-              <span className="-ml-[3%] text-[1.2dvw] leading-none lg:text-xs lg:leading-none">
+              <span className="-ml-[3%] text-[1.7dvw] leading-none lg:text-lg lg:leading-none">
                 TVL
               </span>
             </div>
