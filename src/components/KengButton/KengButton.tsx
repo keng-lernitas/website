@@ -11,6 +11,7 @@ interface KengButtonProps {
     | "epok2"
     | "atak"
     | "defind"
+    | "batel"
     | "zorksees";
   className?: string;
   onClick?: () => void;
@@ -27,6 +28,7 @@ const StaticState = {
   atak: "/images/atak-button.png",
   defind: "/images/defind-button.png",
   zorksees: "/images/zorksees_coin_md.png",
+  batel: "/images/batel-button.png",
 };
 const HoverState = {
   gold: "/images/buy-button-hover.png",
@@ -38,6 +40,7 @@ const HoverState = {
   atak: "/images/atak-button-hover.png",
   defind: "/images/defind-button-hover.png",
   zorksees: "/images/zorksees_coin_md-hover.png",
+  batel: "/images/batel-button-hover.png",
 };
 
 const KengButton = ({

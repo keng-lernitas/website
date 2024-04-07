@@ -46,8 +46,8 @@ const Header = () => {
 
         <div className="flex w-[50%] items-center gap-x-[1%]">
           <KengButton type="gold" onClick={handleHeaderBuyClicked} />
-          <Link to="/burn">
-            <KengButton type="red" />
+          <Link to="/batel">
+            <KengButton type="batel" />
           </Link>
         </div>
       </div>
