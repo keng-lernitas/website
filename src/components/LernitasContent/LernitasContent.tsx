@@ -7,8 +7,6 @@ import {
   useWriteContract,
 } from "wagmi";
 
-import CONTRACT_ABI from "../../static/2192-abi.json";
-import { FireIcon } from "@heroicons/react/24/outline";
 import { WAGMICONFIG } from "../../main";
 import {
   ArrowRightIcon,

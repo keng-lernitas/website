@@ -93,7 +93,7 @@ const Batel = () => {
                 <a
                   href="https://www.coingecko.com/en/api"
                   target="_blank"
-                  className=" mx-auto text-center font-medium text-keng-red transition hover:opacity-80"
+                  className=" mx-auto text-center text-xs font-medium text-keng-red transition hover:opacity-80 sm:text-sm md:text-base"
                 >
                   Data provided by CoinGecko
                 </a>

@@ -14,6 +14,7 @@ interface KengButtonProps {
     | "zorksees";
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const StaticState = {
@@ -39,8 +40,15 @@ const HoverState = {
   zorksees: "/images/zorksees_coin_md-hover.png",
 };
 
-const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
+const KengButton = ({
+  type = "gold",
+  className,
+  onClick,
+  disabled,
+}: KengButtonProps) => {
   const handleMouseOver = () => {
+    if (disabled) return;
+
     const audio = new Audio("/audio/button_hover.mp3");
     audio.volume = 0.5;
     audio.play();
@@ -51,15 +59,20 @@ const KengButton = ({ type = "gold", className, onClick }: KengButtonProps) => {
       onClick={onClick}
       className={cn("group relative", className)}
       onMouseOver={handleMouseOver}
+      disabled={disabled}
     >
       <img
         src={StaticState[type]}
-        className="select-none hover:scale-[102%]"
+        className={cn(!disabled && " hover:scale-[102%]", "select-none")}
         draggable={false}
       />
       <img
         src={HoverState[type]}
-        className="absolute inset-0 select-none opacity-0 hover:scale-[102%]  active:scale-[98%] active:brightness-90 group-hover:opacity-100"
+        className={cn(
+          !disabled &&
+            " hover:scale-[102%]  active:scale-[98%] active:brightness-90 group-hover:opacity-100",
+          "absolute inset-0 select-none opacity-0 ",
+        )}
         draggable={false}
       />
     </button>

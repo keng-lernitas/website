@@ -38,7 +38,7 @@ const GetInitialLaunchDate = () => {
   const now = moment().tz("America/Los_Angeles");
 
   // Launch date and time in "America/Los_Angeles" timezone
-  const d = "2024-03-28T09:00:00";
+  const d = "2024-04-21T05:00:00";
 
   const launch = moment.tz(d, "YYYY-MM-DDTHH:mm:ss", "America/Los_Angeles");
 

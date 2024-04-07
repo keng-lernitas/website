@@ -24,15 +24,13 @@ const Burn = () => {
           <Header />
 
           <div className="absolute right-[6%] top-[10%] flex h-[10%] w-[70%] flex-col items-center justify-center p-[1%] font-ScribbleChild text-lg text-keng-gold">
-            <div className="text-[1.6dvw] leading-none lg:text-base lg:leading-none">
-              epok 1 haz endud
-            </div>
-
             <div className="mb-[2%] mt-[2%] text-[3.5dvw] leading-none lg:text-4xl lg:leading-none">
-              epok 2
+              berning haz endud
             </div>
 
-            <EpokCountdown />
+            <div className="text-[1.6dvw] leading-none lg:text-base lg:leading-none">
+              yur chanz tu neel is ova!
+            </div>
           </div>
 
           <img
@@ -60,8 +58,9 @@ const Burn = () => {
 
           <KengButton
             type="seel"
-            className="absolute left-[21%] top-[62%] w-[25%] "
+            className=" absolute left-[21%] top-[62%] w-[25%] disabled:brightness-75 disabled:saturate-50 "
             onClick={handleSeelClicked}
+            disabled={true}
           />
 
           <div className="absolute space-y-[5%] pb-[4%] pt-[12%]">
