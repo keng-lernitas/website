@@ -21,10 +21,6 @@ interface BatelBannerType {
 }
 
 const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
-  console.log(
-    ((lernitasTVL?.tvl ?? 0) / (lernitasTVL?.maxTVL ?? 1)) * 100 + "%",
-  );
-
   return (
     <div className="absolute left-[57%] top-[7.25%] flex w-[63%] -translate-x-1/2 items-center justify-between gap-x-[1%] p-[1%]">
       <div className="flex-center flex flex-1 flex-col items-center space-y-[3%]">

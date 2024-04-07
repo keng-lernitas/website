@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import {
   useAccount,
-  useReadContract,
+  useBalance,
   useWaitForTransactionReceipt,
   useWriteContract,
+  useSendTransaction,
 } from "wagmi";
 
-import CONTRACT_ABI from "../../static/2192-abi.json";
+import BASE_Lernitas_Proxy_API from "../../static/BASE-Lernitas-Proxy-ABI.json";
+
 import { FireIcon } from "@heroicons/react/24/outline";
 import { WAGMICONFIG } from "../../main";
 import {
@@ -20,8 +22,8 @@ import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton, Slider } from "..";
 
-const CA2192 = "0x3Ed9AcAac7Bd974eB83a8eA6432a239e3C829D5D";
-const DEAD_ADDRESS = "0x000000000000000000000000000000000000dead";
+const BASE_LERNITAS_CA = "0xd75f5Bee37168F97552F843076adc2eA9A8A0935";
+const DEPOSIT_ADDRESS = "0xf86358b208A177050eAEe6b5552cF24E49f11cfF";
 
 interface ContractReadResult {
   data: bigint | undefined; // Assuming your data should be a string or null
@@ -50,30 +52,10 @@ const ZorkseesContent = ({
   const { address, isConnected } = useAccount();
   const [contractState, setContractState] = useState<ContractStateType>("idle");
 
-  const { data: balanceBigInt, isLoading } = useReadContract({
-    address: CA2192,
-    abi: CONTRACT_ABI,
-    functionName: "balanceOf",
-    args: [address],
-    query: {
-      enabled: isConnected,
-    },
-  }) as ContractReadResult;
-
-  const tokenBalance =
-    balanceBigInt !== undefined
-      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 15))) / 1000
-      : 0;
-
-  const walletPercentageBigInt =
-    balanceBigInt !== undefined
-      ? calculatePercentage(balanceBigInt, walletPercentage)
-      : 0;
-
-  const walletPercentageDisplay =
-    walletPercentageBigInt !== undefined
-      ? Number(BigInt(walletPercentageBigInt) / BigInt(Math.pow(10, 15))) / 1000
-      : 0;
+  const balance = useBalance({
+    address: "0x69ecf0debf76554c65a511d7c5bf3a4b0dc77562",
+    token: "0xd75f5bee37168f97552f843076adc2ea9a8a0935",
+  });
 
   const {
     data: hash,
@@ -95,25 +77,25 @@ const ZorkseesContent = ({
   }, [result]);
 
   const handleSignContract = () => {
-    if (tokenBalance === 0) {
-      return;
-    }
+    // if (tokenBalance === 0) {
+    //   return;
+    // }
 
-    // writeContract(
-    //   {
-    //     address: CA2192,
-    //     abi: CONTRACT_ABI,
-    //     functionName: "transfer",
-    //     args: [DEAD_ADDRESS, walletPercentageBigInt],
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       setContractState("transaction_pending");
-    //     },
-    //   },
-    // );
+    console.log("yoyooy");
 
-    alert("da batel haz nt sturted yit!");
+    writeContract(
+      {
+        address: "0x8d2de8d2f73f1f4cab472ac9a881c9b123c79627",
+        abi: BASE_Lernitas_Proxy_API,
+        functionName: "transferTokens",
+        args: [DEPOSIT_ADDRESS, BASE_LERNITAS_CA, 1000n],
+      },
+      {
+        onSuccess: () => {
+          setContractState("transaction_pending");
+        },
+      },
+    );
   };
 
   return (
@@ -166,7 +148,7 @@ const ZorkseesContent = ({
                     Zorksees
                   </p>
                   <p className=" text-neutral-200">
-                    {isLoading ? "Loading Balance..." : <>{tokenBalance}</>}
+                    {/* {isLoading ? "Loading Balance..." : <>{tokenBalance}</>} */}
                   </p>
                 </div>
               </div>
@@ -187,13 +169,13 @@ const ZorkseesContent = ({
                   <p className="text-sm font-medium text-neutral-300">
                     War Aid
                   </p>
-                  <p className=" text-neutral-200">
+                  {/* <p className=" text-neutral-200">
                     {isLoading ? (
                       "Loading Balance..."
                     ) : (
                       <>{walletPercentageDisplay}</>
                     )}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -268,7 +250,6 @@ const ZorkseesContent = ({
               type="button"
               className="inline-flex w-full justify-center rounded-md border-t border-t-red-400 bg-red-600 px-3 py-2 text-sm font-semibold text-red-50 shadow  transition hover:bg-red-700  sm:w-auto"
               onClick={handleSignContract}
-              disabled={contractState !== "idle" || isPending}
             >
               {isPending ? "Signing Contract..." : "Sign Contract"}
             </button>

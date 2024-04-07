@@ -33,7 +33,7 @@ const queryClient = new QueryClient({
 export const WAGMICONFIG = getDefaultConfig({
   appName: "keng lernitas",
   projectId: "1",
-  chains: [optimism, base],
+  chains: [base],
   ssr: false, // If your dApp uses server side rendering (SSR)
 });
 

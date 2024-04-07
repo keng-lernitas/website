@@ -22,7 +22,14 @@ export type Scalars = {
 export type Query = {
   __typename?: 'Query';
   lernitasTokenData?: Maybe<TokenData>;
+  tokenAmount?: Maybe<Scalars['Float']['output']>;
   zorkseesTokenData?: Maybe<TokenData>;
+};
+
+
+export type QueryTokenAmountArgs = {
+  token: Scalars['String']['input'];
+  walletAddress: Scalars['String']['input'];
 };
 
 export type TokenData = {
@@ -40,6 +47,14 @@ export type LernitasTokenDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type LernitasTokenDataQuery = { __typename?: 'Query', lernitasTokenData?: { __typename?: 'TokenData', visibleShields?: number | null, maxTVL?: number | null, TVL?: number | null, formattedTVL?: string | null } | null };
+
+export type TokenAmountQueryVariables = Exact<{
+  walletAddress: Scalars['String']['input'];
+  token: Scalars['String']['input'];
+}>;
+
+
+export type TokenAmountQuery = { __typename?: 'Query', tokenAmount?: number | null };
 
 export type ZorkseesTokenDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -88,6 +103,47 @@ export const useInfiniteLernitasTokenDataQuery = <
     const { queryKey: optionsQueryKey, ...restOptions } = options;
     return {
       queryKey: optionsQueryKey ?? variables === undefined ? ['lernitasTokenData.infinite'] : ['lernitasTokenData.infinite', variables],
+      queryFn: (metaData) => query({...variables, ...(metaData.pageParam ?? {})}),
+      ...restOptions
+    }
+  })()
+    )};
+
+export const TokenAmountDocument = `
+    query tokenAmount($walletAddress: String!, $token: String!) {
+  tokenAmount(walletAddress: $walletAddress, token: $token)
+}
+    `;
+
+export const useTokenAmountQuery = <
+      TData = TokenAmountQuery,
+      TError = GLError
+    >(
+      variables: TokenAmountQueryVariables,
+      options?: Omit<UseQueryOptions<TokenAmountQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<TokenAmountQuery, TError, TData>['queryKey'] }
+    ) => {
+    
+    return useQuery<TokenAmountQuery, TError, TData>(
+      {
+    queryKey: ['tokenAmount', variables],
+    queryFn: useFetchData<TokenAmountQuery, TokenAmountQueryVariables>(TokenAmountDocument).bind(null, variables),
+    ...options
+  }
+    )};
+
+export const useInfiniteTokenAmountQuery = <
+      TData = InfiniteData<TokenAmountQuery>,
+      TError = GLError
+    >(
+      variables: TokenAmountQueryVariables,
+      options: Omit<UseInfiniteQueryOptions<TokenAmountQuery, TError, TData>, 'queryKey'> & { queryKey?: UseInfiniteQueryOptions<TokenAmountQuery, TError, TData>['queryKey'] }
+    ) => {
+    const query = useFetchData<TokenAmountQuery, TokenAmountQueryVariables>(TokenAmountDocument)
+    return useInfiniteQuery<TokenAmountQuery, TError, TData>(
+      (() => {
+    const { queryKey: optionsQueryKey, ...restOptions } = options;
+    return {
+      queryKey: optionsQueryKey ?? ['tokenAmount.infinite', variables],
       queryFn: (metaData) => query({...variables, ...(metaData.pageParam ?? {})}),
       ...restOptions
     }
