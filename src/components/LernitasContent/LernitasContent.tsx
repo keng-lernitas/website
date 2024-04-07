@@ -21,6 +21,7 @@ import BASE_Lernitas_Proxy_ABI from "../../static/BASE-Lernitas-Proxy-ABI.json";
 import { Dialog } from "@headlessui/react";
 import { cn } from "../../lib/utils";
 import { CustomConnectButton, Slider } from "..";
+import { useQueryClient } from "@tanstack/react-query";
 
 const BASE_LERNITAS_CA = "0xd75f5Bee37168F97552F843076adc2eA9A8A0935";
 const DEPOSIT_ADDRESS = "0xf86358b208A177050eAEe6b5552cF24E49f11cfF";
@@ -47,6 +48,8 @@ const LernitasContent = ({
   setOpen,
   setShowZorksees,
 }: LernitasContentProps) => {
+  const queryClient = useQueryClient();
+
   const [walletPercentage, setWalletPercentage] = useState(0);
 
   const { address, isConnected } = useAccount();
@@ -93,11 +96,15 @@ const LernitasContent = ({
     if (result.data?.status === "success") {
       setContractState("transaction_success");
       setShowZorksees(true);
+
+      // invalidate queries
+      queryClient.invalidateQueries({ queryKey: ["lernitasTokenData"] });
+      queryClient.invalidateQueries({ queryKey: ["zorkseesTokenData"] });
     }
   }, [result]);
 
   const handleSignContract = () => {
-    if (tokenBalance === 0) {
+    if (tokenBalance === 0 || walletPercentage === 0) {
       return;
     }
 
@@ -126,7 +133,7 @@ const LernitasContent = ({
           className={cn(
             contractState !== "transaction_success"
               ? "border-keng-gold/30 bg-keng-gold/20"
-              : "border-green-700/30 bg-green-700/20",
+              : "border-keng-gold/30 bg-keng-gold/20",
             "mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border  sm:mx-0 sm:h-10 sm:w-10",
           )}
         >
@@ -137,7 +144,7 @@ const LernitasContent = ({
             />
           ) : (
             <CheckCircleIcon
-              className="h-6 w-6 text-green-700"
+              className="h-6 w-6 text-keng-gold"
               aria-hidden="true"
             />
           )}
@@ -148,7 +155,7 @@ const LernitasContent = ({
             className="text-xl font-semibold leading-6 text-white"
           >
             {contractState === "transaction_success"
-              ? "contrakt sined"
+              ? "u hav joynda wor"
               : "halp da sportinz"}
           </Dialog.Title>
         </div>
@@ -247,10 +254,7 @@ const LernitasContent = ({
         {contractState === "transaction_success" && (
           <div className="py-6">
             <p className="text-neural-50 text-balance text-center font-ScribbleHand text-3xl">
-              fank u for ur davosan
-            </p>
-            <p className="mt-2 text-balance text-center  font-ScribbleChild text-sm leading-6 tracking-widest text-neutral-400 ">
-              ur offa to da wun tru gud keng zorksees haz ben aknoligd
+              u ar dafending sporta
             </p>
           </div>
         )}

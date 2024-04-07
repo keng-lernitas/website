@@ -96,7 +96,7 @@ const ZorkseesContent = ({
   }, [result]);
 
   const handleSignContract = () => {
-    if (tokenBalance === 0) {
+    if (tokenBalance === 0 || walletPercentage === 0) {
       return;
     }
 
@@ -125,7 +125,7 @@ const ZorkseesContent = ({
           className={cn(
             contractState !== "transaction_success"
               ? "border-red-500/30 bg-red-500/20"
-              : "border-green-700/30 bg-green-700/20",
+              : "border-red-500/30 bg-red-500/20",
             "mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border  sm:mx-0 sm:h-10 sm:w-10",
           )}
         >
@@ -136,7 +136,7 @@ const ZorkseesContent = ({
             />
           ) : (
             <CheckCircleIcon
-              className="h-6 w-6 text-green-700"
+              className="h-6 w-6 text-red-500"
               aria-hidden="true"
             />
           )}
@@ -147,7 +147,7 @@ const ZorkseesContent = ({
             className="text-xl font-semibold leading-6 text-white"
           >
             {contractState === "transaction_success"
-              ? "contrakt sined"
+              ? "u hav joynda wor"
               : "halp da perzans"}
           </Dialog.Title>
         </div>
@@ -249,10 +249,7 @@ const ZorkseesContent = ({
         {contractState === "transaction_success" && (
           <div className="py-6">
             <p className="text-neural-50 text-balance text-center font-ScribbleHand text-3xl">
-              fank u for ur davosan
-            </p>
-            <p className="mt-2 text-balance text-center  font-ScribbleChild text-sm leading-6 tracking-widest text-neutral-400 ">
-              ur offa to da wun tru gud keng zorksees haz ben aknoligd
+              u fite fur zorksees
             </p>
           </div>
         )}
