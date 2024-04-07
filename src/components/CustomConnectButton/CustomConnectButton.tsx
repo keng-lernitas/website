@@ -48,8 +48,18 @@ const CustomConnectButton = () => {
 
               if (chain.unsupported) {
                 return (
-                  <button onClick={openChainModal} type="button">
-                    Wrong network
+                  <button
+                    onClick={openChainModal}
+                    type="button"
+                    className="w-full"
+                  >
+                    <div className="mx-auto w-fit rounded-xl border border-red-600/10 bg-red-600/20 px-4 py-2 text-red-100">
+                      <p className="font-medium">Wrong network!</p>
+                      <p className="text-sm">
+                        Please switch to the{" "}
+                        <span className="font-medium">base network</span>
+                      </p>
+                    </div>
                   </button>
                 );
               }

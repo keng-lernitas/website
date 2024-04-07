@@ -233,6 +233,20 @@ const LernitasContent = ({
                 <br />
                 Put fourth as many soldiers as you can to guarantee victory and
                 be rewarded with a great and mysterious prize.
+                <br />
+                <br />
+                Tokens must first be bridged to base:{" "}
+                <a
+                  href="https://portalbridge.com/advanced-tools/#/transfer"
+                  target="_blank"
+                  className="font-medium text-blue-600 transition hover:text-blue-500"
+                >
+                  portalbridge.com
+                </a>{" "}
+                <br />
+                <span className="font-medium text-red-500">
+                  Bridge time varies and can take over 30 minutes.
+                </span>
               </p>
             </div>
           </div>
