@@ -62,7 +62,7 @@ const ZorkseesContent = ({
 
   const tokenBalance =
     balanceBigInt !== undefined
-      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 1))) / 1000000
+      ? Number(BigInt(balanceBigInt) / BigInt(Math.pow(10, 2))) / 1000000
       : 0;
 
   const walletPercentageBigInt =
@@ -72,7 +72,7 @@ const ZorkseesContent = ({
 
   const walletPercentageDisplay =
     walletPercentageBigInt !== undefined
-      ? Number(BigInt(walletPercentageBigInt) / BigInt(Math.pow(10, 1))) /
+      ? Number(BigInt(walletPercentageBigInt) / BigInt(Math.pow(10, 2))) /
         1000000
       : 0;
 
