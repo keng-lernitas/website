@@ -18,16 +18,43 @@ interface BatelBannerType {
     tvl: number | null | undefined;
     maxTVL: number | null | undefined;
   };
+
+  countDownComplete: boolean;
+  setCountDownComplete: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BatelBanner = ({ lernitasTVL, zorkseesTVL }: BatelBannerType) => {
+const BatelBanner = ({
+  lernitasTVL,
+  zorkseesTVL,
+  countDownComplete,
+  setCountDownComplete,
+}: BatelBannerType) => {
   return (
     <div className="absolute left-[57%] top-[7.25%] flex w-[63%] -translate-x-1/2 items-center justify-between gap-x-[1%] p-[1%]">
       <div className="flex-center flex flex-1 flex-col items-center space-y-[3%]">
-        <h1 className="font-ScribbleChild text-[3.5vw] leading-none  text-keng-gold-dark lg:text-4xl lg:leading-none">
-          batel fur glori
-        </h1>
-        <Countdown />
+        {!countDownComplete && (
+          <>
+            <h1 className="font-ScribbleChild text-[3.5vw] leading-none  text-keng-gold-dark lg:text-4xl lg:leading-none">
+              batel fur glori
+            </h1>
+
+            <Countdown
+              countDownComplete={countDownComplete}
+              setCountDownComplete={setCountDownComplete}
+            />
+          </>
+        )}
+
+        {countDownComplete && (
+          <>
+            <h1 className="text-center font-ScribbleChild text-[3.5vw] leading-none text-keng-gold-dark lg:text-4xl lg:leading-none">
+              batel iz ova!
+            </h1>
+            <p className="text-center font-ScribbleChild text-[2vw] leading-none text-keng-gold lg:text-xl lg:leading-none">
+              all hayel gud keng zorksees!
+            </p>
+          </>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col space-y-[4.5%] font-ScribbleChild text-keng-gold-dark">

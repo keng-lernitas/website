@@ -106,6 +106,7 @@ const Countdown = ({
         setHours("00");
         setMinutes("00");
         setSeconds("00");
+
         if (setCountDownComplete && !countDownComplete)
           setCountDownComplete(true);
       }

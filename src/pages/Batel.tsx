@@ -21,6 +21,8 @@ import {
 } from "../api/graphql";
 
 const Batel = () => {
+  const [countDownComplete, setCountDownComplete] = useState(false);
+
   const [visible, setVisible] = useRecoilState(sportansVisible);
 
   const [lernitasModalOpen, setLernitasModalOpen] = useState(false);
@@ -58,19 +60,18 @@ const Batel = () => {
 
           <img
             src="/images/batel_background.webp"
-            className=" pointer-events-none z-0 ml-[0%] mt-[20%] aspect-[4097/6819] w-full scale-[122%] transform-gpu select-none"
+            className={cn(
+              countDownComplete ? "hidden" : "block",
+              "pointer-events-none z-0 ml-[0%] mt-[20%] aspect-[4097/6819] w-full scale-[122%] transform-gpu select-none",
+            )}
           />
 
-          <KengButton
-            type="defind"
-            className="absolute left-[53%] top-[42%]  z-10 w-[16%] -translate-x-1/2"
-            onClick={() => setLernitasModalOpen(true)}
-          />
-
-          <KengButton
-            type="atak"
-            className="absolute left-[54%] top-[68%]  z-10 w-[16%] -translate-x-1/2"
-            onClick={() => setZorkseesModalOpen(true)}
+          <img
+            src="/images/batel-finished-background.webp"
+            className={cn(
+              countDownComplete ? "block" : "hidden",
+              "pointer-events-none z-0 ml-[0%] mt-[20%] aspect-[4097/6819] w-full scale-[122%] transform-gpu select-none",
+            )}
           />
 
           <BatelBanner
@@ -84,19 +85,51 @@ const Batel = () => {
               tvl: zorkseesData?.zorkseesTokenData?.TVL,
               maxTVL: zorkseesData?.zorkseesTokenData?.maxTVL,
             }}
+            countDownComplete={countDownComplete}
+            setCountDownComplete={setCountDownComplete}
           />
 
-          <Sportans
-            visibleShields={lernitasData?.lernitasTokenData?.visibleShields}
-          />
+          {!countDownComplete && (
+            <>
+              <Sportans
+                visibleShields={lernitasData?.lernitasTokenData?.visibleShields}
+              />
 
-          <Perzans
-            visibleShields={zorkseesData?.zorkseesTokenData?.visibleShields}
-          />
+              <Perzans
+                visibleShields={zorkseesData?.zorkseesTokenData?.visibleShields}
+              />
 
-          <LernitasQuotes />
+              <KengButton
+                type="defind"
+                className="absolute left-[53%] top-[42%]  z-10 w-[16%] -translate-x-1/2"
+                onClick={() => setLernitasModalOpen(true)}
+              />
 
-          <ZorkseesQuotes />
+              <KengButton
+                type="atak"
+                className="absolute left-[54%] top-[68%]  z-10 w-[16%] -translate-x-1/2"
+                onClick={() => setZorkseesModalOpen(true)}
+              />
+
+              <LernitasQuotes />
+
+              <ZorkseesQuotes />
+            </>
+          )}
+
+          {countDownComplete && (
+            <>
+              <img
+                src="/images/script-bg.webp"
+                className="pointer-events-none absolute left-1/2 top-[78%] z-0 w-[50%] translate-x-[-40%] scale-[122%] transform-gpu select-none"
+              />
+
+              <p className="absolute left-1/2 top-[81%] w-[50%] -translate-x-[40%] whitespace-pre text-center font-ScribbleHand text-[3.5vw] leading-none text-keng-text lg:text-4xl lg:leading-none ">
+                {`remember uz\nremember why wi dyed\n\nfur he did nt wysh tribyut or song\nnur monyumentz\nnur powemz ov wor an valur\n\nhiz wish wuz simpol\n\nremumber uz`}
+              </p>
+            </>
+          )}
+
           <div className="absolute space-y-[5%] pb-[4%] pt-[25%]">
             <div>
               <div className=" mb-[3%] text-center">
