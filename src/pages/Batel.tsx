@@ -51,14 +51,6 @@ const Batel = () => {
           <Header />
 
           <img
-            src="/images/efaltez.png"
-            className={cn(
-              visible ? "right-[-2%] top-[18%]" : "right-[5%] top-[20%]",
-              "absolute  w-[20%] transition-all",
-            )}
-          />
-
-          <img
             src="/images/batel_background.webp"
             className={cn(
               countDownComplete ? "hidden" : "block",
