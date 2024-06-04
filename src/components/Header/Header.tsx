@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { KengButton } from "..";
 
 const LINKS = [
-  {
-    name: "batel",
-    url: "/batel",
-  },
+  // {
+  //   name: "batel",
+  //   url: "/batel",
+  // },
   {
     name: "zorksees",
     url: "/zorksees",
@@ -20,8 +20,12 @@ const LINKS = [
     url: "https://twitter.com/KengLernitas",
   },
   {
-    name: "glori lyst",
-    url: "/glori-lyst",
+    name: "proposals",
+    url: "https://proposals.kenglernitas.wtf",
+  },
+  {
+    name: "vote",
+    url: "https://proposals.kenglernitas.wtf",
   },
   {
     name: "info",
