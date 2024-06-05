@@ -25,7 +25,7 @@ const LINKS = [
   },
   {
     name: "vote",
-    url: "https://proposals.kenglernitas.wtf",
+    url: "https://vote.kenglernitas.wtf",
   },
   {
     name: "info",
